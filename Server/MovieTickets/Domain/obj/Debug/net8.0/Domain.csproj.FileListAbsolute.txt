@@ -1,0 +1,14 @@
+F:\MovieTickets\MovieTickets\Domain\bin\Debug\net8.0\Domain.deps.json
+F:\MovieTickets\MovieTickets\Domain\bin\Debug\net8.0\Domain.dll
+F:\MovieTickets\MovieTickets\Domain\bin\Debug\net8.0\Domain.pdb
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.dll
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\refint\Domain.dll
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.pdb
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\ref\Domain.dll
+F:\MovieTickets\MovieTickets\Domain\bin\Debug\net8.0\Domain.runtimeconfig.json
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
