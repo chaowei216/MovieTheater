@@ -1,6 +1,7 @@
 module.exports = {
   content: [
-    './src/**/*.{html,js,jsx,ts,tsx}', // Quét tất cả các tệp .html, .js, .jsx, .ts, .tsx trong thư mục src
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}", // Quét tất cả file JSX/TSX
   ],
   theme: {
     extend: {},
