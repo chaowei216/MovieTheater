@@ -84,22 +84,16 @@ const Home = () => {
           className="relative group"
         >
 
-          {nowShowingMovies.map((movie) => (
-            <SwiperSlide key={movie.id}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative overflow-hidden rounded-lg shadow-lg"
-              >
-                <MovieCard movie={movie} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                  <button className="w-full bg-yellow-400 text-gray-900 py-2 rounded font-bold hover:bg-yellow-300 transition-colors">
-                    MUA VÉ
-                  </button>
-                </div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-
+{nowShowingMovies.map((movie) => (
+  <SwiperSlide key={movie.id}>
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      className="overflow-hidden rounded-lg shadow-lg"
+    >
+      <MovieCard movie={movie} showOverlay={true} />
+    </motion.div>
+  </SwiperSlide>
+))}
           {/* Custom Navigation Buttons */}
           <button className="prev-now-showing absolute left-0 top-1/2 z-10 -translate-y-1/2 bg-black/50 text-yellow-400 w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
