@@ -1,0 +1,131 @@
+export const nowShowingMovies = [
+  {
+    id: 1,
+    title: "Dune: Part Two",
+    genre: "Sci-Fi, Adventure",
+    rating: 8.9,
+    poster: "https://m.media-amazon.com/images/M/MV5BN2QyZGU4ZDctOWMzMy00NTc5LThlOGQtODhmNDI1NmY5YzAwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg",
+  },
+  {
+    id: 2,
+    title: "The Batman",
+    genre: "Action, Crime, Drama",
+    rating: 7.9,
+    poster: "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg",
+  },
+  {
+    id: 3,
+    title: "Everything Everywhere All at Once",
+    genre: "Action, Adventure, Comedy",
+    rating: 8.8,
+    poster: "https://m.media-amazon.com/images/M/MV5BYTdiOTIyZTQtNmQ1OS00NjZlLWIyMTgtYzk5Y2M3ZDVmMDk1XkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_.jpg",
+  },
+  {
+    id: 4,
+    title: "Top Gun: Maverick",
+    genre: "Action, Drama",
+    rating: 8.3,
+    poster: "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg",
+  },
+  {
+    id: 5,
+    title: "Avatar: The Way of Water",
+    genre: "Sci-Fi, Adventure",
+    rating: 7.6,
+    poster: "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg",
+  },
+  {
+    id: 6,
+    title: "Black Panther: Wakanda Forever",
+    genre: "Action, Adventure, Drama",
+    rating: 6.7,
+    poster: "https://m.media-amazon.com/images/M/MV5BNTM4NjIxNmEtYWE5NS00NDczLTkyNWQtYThhNmQyZGQzMjM0XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1000_.jpg",
+  },
+  {
+    id: 7,
+    title: "John Wick: Chapter 4",
+    genre: "Action, Crime, Thriller",
+    rating: 8.0,
+    poster: "https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_FMjpg_UX1000_.jpg",
+  },
+  {
+    id: 8,
+    title: "Oppenheimer",
+    genre: "Biography, Drama, History",
+    rating: 8.6,
+    poster: "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_FMjpg_UX1000_.jpg",
+  },
+  {
+    id: 9,
+    title: "Barbie",
+    genre: "Adventure, Comedy, Fantasy",
+    rating: 7.3,
+    poster: "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg",
+  }
+];
+
+export const comingSoonMovies = [
+  {
+    id: 101,
+    title: "Deadpool & Wolverine",
+    genre: "Action, Adventure, Comedy",
+    rating: 0,
+    poster: "https://disney.images.edge.bamgrid.com/ripcut-delivery/v1/variant/disney/9f1d072b-1928-4b19-aa67-dc199128e66e?/scale?width=1200&aspectRatio=1.78&format=webp",
+  },
+  {
+    id: 102,
+    title: "Furiosa: A Mad Max Saga",
+    genre: "Action, Adventure, Sci-Fi",
+    rating: 0,
+    poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCLdilVB55Bqzzn1aoYTL3_YDoXjmYSJ5T6g&s",
+  },
+  {
+    id: 103,
+    title: "Kingdom of the Planet of the Apes",
+    genre: "Action, Adventure, Sci-Fi",
+    rating: 0,
+    poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2f8URZAfIHpBDYmsPVj_KCv0E2FjPmvg9Bg&s",
+  },
+  {
+    id: 104,
+    title: "A Quiet Place: Day One",
+    genre: "Drama, Horror, Sci-Fi",
+    rating: 0,
+    poster: "https://m.media-amazon.com/images/M/MV5BMDdjZTljZWMtMDIwNi00MTA5LTkxZmItNmY0NDA3ZDM0N2M2XkEyXkFqcGc@._V1_.jpg",
+  },
+  {
+    id: 105,
+    title: "Inside Out 2",
+    genre: "Animation, Adventure, Comedy",
+    rating: 0,
+    poster: "https://iguov8nhvyobj.vcdn.cloud/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/1/0/1080x1350-insideout.jpg",
+  },
+  {
+    id: 106,
+    title: "Gladiator 2",
+    genre: "Action, Adventure, Drama",
+    rating: 0,
+    poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWyjfXcFq62vcMNOrCwo7qbQNk3hAlJ-2vEQ&s",
+  },
+  {
+    id: 107,
+    title: "Joker: Folie à Deux",
+    genre: "Crime, Drama, Musical",
+    rating: 0,
+    poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRekiR1eIuNz3aZoYzWwd7opzRSDA2tOw6Jw&s",
+  },
+  {
+    id: 108,
+    title: "Venom 3",
+    genre: "Action, Sci-Fi",
+    rating: 0,
+    poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNq4joQw_a4JQDuT1e-OfskWPl5401OErqgg&s",
+  },
+  {
+    id: 109,
+    title: "Kraven the Hunter",
+    genre: "Action, Adventure, Thriller",
+    rating: 0,
+    poster: "https://i.ytimg.com/vi/I8gFw4-2RBM/maxresdefault.jpg",
+  }
+];
