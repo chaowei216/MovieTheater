@@ -1,21 +1,22 @@
 ﻿
-using Application.Interfaces;
 using AutoMapper;
 using Common.DTOs;
+using Domain.Entities;
+using Infrastructure.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Usecases
+namespace Application.Usecases.Users
 {
-    public class GetAllUsersUseCase
+    public class GetAllUsers
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IGenericRepository<User> _userRepository;
         private readonly IMapper _mapper;
 
-        public GetAllUsersUseCase(IUserRepository userRepository, IMapper mapper)
+        public GetAllUsers(IGenericRepository<User> userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _mapper = mapper;
@@ -23,7 +24,7 @@ namespace Application.Usecases
 
         public async Task<IEnumerable<UserDTO>> ExecuteAsync()
         {
-            var users = await _userRepository.GetAllUsersAsync();
+            var users = await _userRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<UserDTO>>(users);
         }
     }

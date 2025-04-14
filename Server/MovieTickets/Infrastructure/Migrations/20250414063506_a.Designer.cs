@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -11,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20250412052118_a")]
+    [Migration("20250414063506_a")]
     partial class a
     {
         /// <inheritdoc />
@@ -19,57 +20,57 @@ namespace Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseCollation("utf8mb4_unicode_ci")
+                .UseCollation("utf8mb4_general_ci")
                 .HasAnnotation("ProductVersion", "8.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            MySqlModelBuilderExtensions.HasCharSet(modelBuilder, "utf8mb4");
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("Domain.Entities.City", b =>
                 {
-                    b.Property<Guid>("CityId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
                     b.Property<string>("CityName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 255, DateTimeKind.Utc).AddTicks(4418));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
-                    b.HasKey("CityId");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("Domain.Entities.Movie", b =>
                 {
-                    b.Property<Guid>("MovieId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 256, DateTimeKind.Utc).AddTicks(858));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsPublic")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(true);
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("MovieName")
                         .IsRequired()
@@ -79,47 +80,53 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("MovieId");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("Domain.Entities.Role", b =>
                 {
-                    b.Property<Guid>("RoleId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 255, DateTimeKind.Utc).AddTicks(6126));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("RoleName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.HasKey("RoleId");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Domain.Entities.Room", b =>
                 {
-                    b.Property<Guid>("RoomId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 256, DateTimeKind.Utc).AddTicks(3721));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("RoomNumber")
                         .IsRequired()
@@ -127,10 +134,15 @@ namespace Infrastructure.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<Guid>("TheaterId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
-                    b.HasKey("RoomId");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("TheaterId");
 
@@ -139,31 +151,38 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Showtime", b =>
                 {
-                    b.Property<Guid>("ShowtimeId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
                     b.Property<int>("AvailableSeat")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 256, DateTimeKind.Utc).AddTicks(5280));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("MovieId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
                     b.Property<Guid>("RoomId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
                     b.Property<DateTime>("ShowtimeDate")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("ShowtimeId");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("MovieId");
 
@@ -174,19 +193,21 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Theater", b =>
                 {
-                    b.Property<Guid>("TheaterId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
                     b.Property<Guid>("CityId")
-                        .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
-
-                    b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 256, DateTimeKind.Utc).AddTicks(2336));
+                        .HasColumnType("char(36)")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -195,10 +216,13 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("TheaterName")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
-                    b.HasKey("TheaterId");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("CityId");
 
@@ -207,19 +231,18 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Ticket", b =>
                 {
-                    b.Property<Guid>("TicketId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 256, DateTimeKind.Utc).AddTicks(6912));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<decimal>("Price")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<DateTime>("PurchaseDate")
                         .HasColumnType("datetime(6)");
@@ -230,14 +253,21 @@ namespace Infrastructure.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<Guid>("ShowtimeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
-                    b.HasKey("TicketId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ShowtimeId");
 
@@ -248,15 +278,15 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Transaction", b =>
                 {
-                    b.Property<Guid>("TransactionId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 256, DateTimeKind.Utc).AddTicks(8702));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("PaymentMethod")
                         .IsRequired()
@@ -269,21 +299,27 @@ namespace Infrastructure.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<Guid>("TicketId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
                     b.Property<decimal>("TotalAmount")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
-                    b.HasKey("TransactionId");
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("TicketId")
                         .IsUnique();
@@ -295,44 +331,50 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
 
-                    b.Property<DateTime>("CreateAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2025, 4, 12, 5, 21, 18, 255, DateTimeKind.Utc).AddTicks(7992));
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("PasswordSalt")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
                     b.Property<Guid>("RoleId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .UseCollation("utf8mb4_unicode_ci");
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
@@ -344,7 +386,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Theater", "Theater")
                         .WithMany("Rooms")
                         .HasForeignKey("TheaterId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Theater");
@@ -355,13 +397,13 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Movie", "Movie")
                         .WithMany("Showtimes")
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.Room", "Room")
                         .WithMany("Showtimes")
                         .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Movie");
@@ -374,7 +416,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.City", "City")
                         .WithMany("Theaters")
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("City");
@@ -385,13 +427,13 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Showtime", "Showtime")
                         .WithMany("Tickets")
                         .HasForeignKey("ShowtimeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.User", "User")
                         .WithMany("Tickets")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Showtime");
@@ -404,13 +446,13 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Ticket", "Ticket")
                         .WithOne("Transaction")
                         .HasForeignKey("Domain.Entities.Transaction", "TicketId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.User", "User")
                         .WithMany("Transactions")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Ticket");
@@ -423,7 +465,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Role");
@@ -461,8 +503,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Ticket", b =>
                 {
-                    b.Navigation("Transaction")
-                        .IsRequired();
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("Domain.Entities.User", b =>

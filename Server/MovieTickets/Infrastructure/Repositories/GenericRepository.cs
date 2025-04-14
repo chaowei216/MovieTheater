@@ -1,4 +1,5 @@
-﻿using Infrastructure.Data;
+﻿using Domain.Entities;
+using Infrastructure.Data;
 using Infrastructure.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,8 @@ using System.Threading.Tasks;
 namespace Infrastructure.Repositories
 {
 
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         private readonly MovieDbContext _context;
         private readonly DbSet<T> _dbSet;
@@ -27,26 +29,20 @@ namespace Infrastructure.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T?> GetByIdAsync(Guid id)
         {
             return await _dbSet.FindAsync(id);
-        }
-
-        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
-        {
-            return await _dbSet.Where(predicate).ToListAsync();
         }
 
         public async Task AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
-            await _context.SaveChangesAsync();
+            await Task.CompletedTask;
         }
 
         public async Task DeleteAsync(Guid id)
@@ -55,8 +51,12 @@ namespace Infrastructure.Repositories
             if (entity != null)
             {
                 _dbSet.Remove(entity);
-                await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _dbSet.Where(predicate).ToListAsync();
         }
     }
 }

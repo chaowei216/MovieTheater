@@ -1,21 +1,22 @@
 ﻿
-using Application.Interfaces;
 using AutoMapper;
 using Common.DTOs;
+using Domain.Entities;
+using Infrastructure.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Usecases
+namespace Application.Usecases.Movies
 {
-    public class GetMoviesByTitleUseCase
+    public class GetMoviesByTitle
     {
-        private readonly IMovieRepository _movieRepository;
+        private readonly IGenericRepository<Movie> _movieRepository;
         private readonly IMapper _mapper;
 
-        public GetMoviesByTitleUseCase(IMovieRepository movieRepository, IMapper mapper)
+        public GetMoviesByTitle(IGenericRepository<Movie> movieRepository, IMapper mapper)
         {
             _movieRepository = movieRepository;
             _mapper = mapper;
@@ -23,7 +24,7 @@ namespace Application.Usecases
 
         public async Task<IEnumerable<MovieDTO>> ExecuteAsync(string title)
         {
-            var movies = await _movieRepository.GetMoviesByTitleAsync(title);
+            var movies = await _movieRepository.FindAsync(m => m.MovieName.ToLower().Contains(title.ToLower()));
             return _mapper.Map<IEnumerable<MovieDTO>>(movies);
         }
     }

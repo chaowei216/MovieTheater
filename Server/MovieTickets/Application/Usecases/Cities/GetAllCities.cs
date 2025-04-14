@@ -1,21 +1,23 @@
 ﻿
-using Application.Interfaces;
 using AutoMapper;
 using Common.DTOs;
+using Domain.Entities;
+using Infrastructure.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Usecases
+namespace Application.Usecases.Cities
 {
-    public class GetAllCitiesUseCase
+
+    public class GetAllCities
     {
-        private readonly ICityRepository _cityRepository;
+        private readonly IGenericRepository<City> _cityRepository;
         private readonly IMapper _mapper;
 
-        public GetAllCitiesUseCase(ICityRepository cityRepository, IMapper mapper)
+        public GetAllCities(IGenericRepository<City> cityRepository, IMapper mapper)
         {
             _cityRepository = cityRepository;
             _mapper = mapper;
@@ -23,7 +25,7 @@ namespace Application.Usecases
 
         public async Task<IEnumerable<CityDTO>> ExecuteAsync()
         {
-            var cities = await _cityRepository.GetAllCitiesAsync();
+            var cities = await _cityRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<CityDTO>>(cities);
         }
     }

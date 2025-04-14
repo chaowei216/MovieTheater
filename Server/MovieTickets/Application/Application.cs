@@ -1,7 +1,10 @@
-﻿using Application.Interfaces;
-
-using Application.Usecases;
-
+﻿
+using Application.Mappings;
+using Application.Usecases.Cities;
+using Application.Usecases.Movies;
+using Application.Usecases.Showtimes;
+using Application.Usecases.Theaters;
+using Application.Usecases.Users;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,10 +20,12 @@ namespace Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
-          
-            services.AddScoped<GetAllCitiesUseCase>();
-            services.AddScoped<GetMoviesByTitleUseCase>();
-            services.AddScoped<GetAllUsersUseCase>();
+            services.AddAutoMapper(typeof(MappingProfile));
+            services.AddScoped<GetAllCities>();
+            services.AddScoped<GetMoviesByTitle>();
+            services.AddScoped<GetAllUsers>();
+            services.AddScoped<GetAllTheaters>();
+            services.AddScoped<GetAllShowtimes>(); ;
             return services;
         }
     }

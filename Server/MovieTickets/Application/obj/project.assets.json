@@ -1483,10 +1483,10 @@
           }
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/8.0.0": {
+      "Pomelo.EntityFrameworkCore.MySql/8.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "[8.0.0, 8.0.999]",
+          "Microsoft.EntityFrameworkCore.Relational": "[8.0.13, 8.0.999]",
           "MySqlConnector": "2.3.5"
         },
         "compile": {
@@ -1833,6 +1833,28 @@
         },
         "runtime": {
           "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "12.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
+          "Common": "1.0.0",
+          "Domain": "1.0.0",
+          "GraphQL": "8.4.1",
+          "HotChocolate.AspNetCore": "15.1.3",
+          "HotChocolate.Data": "15.1.3",
+          "HotChocolate.Data.EntityFramework": "15.1.3",
+          "Microsoft.Extensions.Configuration.Json": "8.0.0",
+          "Pomelo.EntityFrameworkCore.MySql": "8.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infrastructure.dll": {}
         }
       }
     }
@@ -3928,10 +3950,10 @@
         "mysqlconnector.nuspec"
       ]
     },
-    "Pomelo.EntityFrameworkCore.MySql/8.0.0": {
-      "sha512": "wEzKTeYCs/+cGSpT5zE8UrKkJyqpJ24yBufthDoCWUhpCCYUIsMKeX4fvaYcm9mbkfHP2dZ+p6V+ZKTAZ3hXRQ==",
+    "Pomelo.EntityFrameworkCore.MySql/8.0.3": {
+      "sha512": "gOHP6v/nFp5V/FgHqv9mZocGqCLGofihEX9dTbLhiXX3H7SJHmGX70GIPUpiqLT+1jIfDxg1PZh9MTUKuk7Kig==",
       "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/8.0.0",
+      "path": "pomelo.entityframeworkcore.mysql/8.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3939,7 +3961,7 @@
         "icon.png",
         "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll",
         "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.xml",
-        "pomelo.entityframeworkcore.mysql.8.0.0.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.8.0.3.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
@@ -4432,6 +4454,11 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4444,10 +4471,10 @@
       "HotChocolate.AspNetCore >= 15.1.3",
       "HotChocolate.Data >= 15.1.3",
       "HotChocolate.Data.EntityFramework >= 15.1.3",
+      "Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.15",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.15",
-      "Microsoft.Extensions.Configuration.Json >= 8.0.0",
-      "Pomelo.EntityFrameworkCore.MySql >= 8.0.0"
+      "Microsoft.Extensions.Configuration.Json >= 8.0.0"
     ]
   },
   "packageFolders": {
@@ -4488,6 +4515,9 @@
             },
             "F:\\MovieTickets\\MovieTickets\\Domain\\Domain.csproj": {
               "projectPath": "F:\\MovieTickets\\MovieTickets\\Domain\\Domain.csproj"
+            },
+            "F:\\MovieTickets\\MovieTickets\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "F:\\MovieTickets\\MovieTickets\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -4544,10 +4574,6 @@
             "version": "[8.0.15, )"
           },
           "Microsoft.Extensions.Configuration.Json": {
-            "target": "Package",
-            "version": "[8.0.0, )"
-          },
-          "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
             "version": "[8.0.0, )"
           }

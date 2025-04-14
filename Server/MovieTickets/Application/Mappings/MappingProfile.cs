@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Mappings
+namespace Application.Mappings
 {
     public class MappingProfile : Profile
     {
@@ -15,6 +15,12 @@ namespace Infrastructure.Mappings
         {
             CreateMap<City, CityDTO>();
             CreateMap<Movie, MovieDTO>();
+            CreateMap<Role, RoleDTO>();
+            CreateMap<Room, RoomDTO>();
+            CreateMap<Showtime, ShowtimeDTO>();
+            CreateMap<Theater, TheaterDTO>();
+            CreateMap<Ticket, TicketDTO>();
+            CreateMap<Transaction, TransactionDTO>();
             CreateMap<User, UserDTO>();
         }
     }
