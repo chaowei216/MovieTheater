@@ -1,8 +1,11 @@
 ﻿
+using Application.Interfaces.IRepositories;
+using Application.Queries.City;
 using AutoMapper;
-using Common.DTOs;
+using Common.DTOs.City;
+using Common.Models;
 using Domain.Entities;
-using Infrastructure.IRepositories;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +22,20 @@ namespace Application.Usecases.Cities
 
         public GetAllCities(IGenericRepository<City> cityRepository, IMapper mapper)
         {
-            _cityRepository = cityRepository;
+            _cityRepository = cityRepository ?? throw new ArgumentNullException(nameof(_cityRepository));
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CityDTO>> ExecuteAsync()
+        public async Task<ResponseModel<IEnumerable<CityDTO>>> Handle(GetAllCities request, CancellationToken cancellationToken)
         {
             var cities = await _cityRepository.GetAllAsync();
-            return _mapper.Map<IEnumerable<CityDTO>>(cities);
+            return new ResponseModel<IEnumerable<CityDTO>>
+            {
+                Success = true,
+                Message = "Cities retrieved successfully",
+                Data = _mapper.Map<IEnumerable<CityDTO>>(cities)
+            };
+           
         }
     }
 }

@@ -5,8 +5,10 @@ using Application.Usecases.Movies;
 using Application.Usecases.Showtimes;
 using Application.Usecases.Theaters;
 using Application.Usecases.Users;
+using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +27,13 @@ namespace Application
             services.AddScoped<GetMoviesByTitle>();
             services.AddScoped<GetAllUsers>();
             services.AddScoped<GetAllTheaters>();
-            services.AddScoped<GetAllShowtimes>(); ;
-            return services;
+            services.AddScoped<GetAllShowtimes>();
+
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application).Assembly));
+            services.AddValidatorsFromAssembly(typeof(Application).Assembly);
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            return services; 
         }
     }
 }

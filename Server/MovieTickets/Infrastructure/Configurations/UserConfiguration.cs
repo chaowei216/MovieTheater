@@ -17,6 +17,7 @@ namespace Infrastructure.Configurations
             builder.Property(u => u.Id)
                 .HasColumnName("Id")
                 .HasColumnType("char(36)").UseCollation("utf8mb4_general_ci")
+                       .ValueGeneratedOnAdd()
                 .HasDefaultValueSql("UUID()");
 
             builder.Property(u => u.UserName)

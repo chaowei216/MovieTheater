@@ -1,5 +1,13 @@
 ﻿using AutoMapper;
-using Common.DTOs;
+using Common.DTOs.City;
+using Common.DTOs.Movie;
+using Common.DTOs.Role;
+using Common.DTOs.Room;
+using Common.DTOs.Showtime;
+using Common.DTOs.Theater;
+using Common.DTOs.Ticket;
+using Common.DTOs.Transaction;
+using Common.DTOs.User;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;

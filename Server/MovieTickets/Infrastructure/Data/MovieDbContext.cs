@@ -1,11 +1,7 @@
 ﻿using Domain.Entities;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
@@ -24,26 +20,43 @@ namespace Infrastructure.Data
         public MovieDbContext(DbContextOptions<MovieDbContext> options) : base(options)
         {
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseCollation("utf8mb4_general_ci");
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
 
-            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
-            {
-                foreach (var property in entityType.GetProperties())
+            // Apply configurations
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(MovieDbContext).Assembly);
+
+            // Seed Role
+            var roleId = Guid.NewGuid();
+            modelBuilder.Entity<Role>().HasData(
+                new Role
                 {
-                    if (property.ClrType == typeof(Guid))
-                    {
-                        modelBuilder.Entity(entityType.ClrType)
-                            .Property<Guid>(property.Name)
-                            .HasColumnType("char(36)")
-                            .HasDefaultValueSql("UUID()");
-                    }
+                    Id = roleId,
+                    RoleName = "User",
+                    UpdatedAt = DateTime.UtcNow
                 }
-            }
-        }
+            );
 
+            // Seed User
+            var hasher = new PasswordHasher();
+            var (hash, salt) = hasher.HashPassword("password123");
+
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = Guid.NewGuid(),
+                    UserName = "testuser",
+                    Email = "testuser@example.com",
+                    Phone = "+1234567890",
+                    PasswordHash = hash,
+                    PasswordSalt = salt,
+                    RoleId = roleId,
+                    CreatedAt = DateTime.UtcNow
+                }
+            );
+        }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

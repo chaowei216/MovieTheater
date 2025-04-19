@@ -1,7 +1,8 @@
-﻿using AutoMapper;
-using Common.DTOs;
+﻿using Application.Interfaces.IRepositories;
+using AutoMapper;
+using Common.DTOs.Showtime;
 using Domain.Entities;
-using Infrastructure.IRepositories;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
