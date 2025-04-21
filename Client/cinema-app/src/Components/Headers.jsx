@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="bg-gray-900 text-white sticky top-0 z-50 shadow-md w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -35,10 +39,14 @@ const Header = () => {
 
           {/* Login Button - Chiếm 1/3 bên phải */}
           <div className="flex-1 flex justify-end">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium py-2 px-4 rounded-md transition duration-300 transform hover:scale-105 whitespace-nowrap">
+            <button onClick={() => navigate("/login")}
+             className="bg-yellow-500 hover:bg-yellow-600
+              text-gray-900 font-medium py-2 px-4 rounded-md transition duration-300 transform hover:scale-105 whitespace-nowrap"
+              >
               Đăng nhập
             </button>
           </div>
+         
         </div>
       </div>
     </header>
