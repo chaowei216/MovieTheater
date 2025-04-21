@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 // import ComingSoon from "./Pages/ComingSoon";
 import MovieDetail from "./Pages/MovieDetail";
 import './index.css'
+import LoginRegister from "./Pages/LoginRegister";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path="/now-showing" element={<NowShowing />} />
         <Route path="/coming-soon" element={<ComingSoon />} /> */}
+        <Route path="/login" element={<LoginRegister/>}/>
         <Route path="/movie/:id" element={<MovieDetail />} />
       </Routes>
 
