@@ -1,6 +1,8 @@
 ﻿using Domain.Entities;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Update;
+using Pomelo.EntityFrameworkCore.MySql.Update.Internal;
 using System;
 
 namespace Infrastructure.Data
@@ -16,30 +18,36 @@ namespace Infrastructure.Data
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<User> Users { get; set; }
-
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
         public MovieDbContext(DbContextOptions<MovieDbContext> options) : base(options)
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.ReplaceService<IModificationCommandBatchFactory, MySqlModificationCommandBatchFactory>();
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Apply configurations
+           
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(MovieDbContext).Assembly);
 
-            // Seed Role
+   
             var roleId = Guid.NewGuid();
             modelBuilder.Entity<Role>().HasData(
                 new Role
                 {
                     Id = roleId,
                     RoleName = "User",
-                    UpdatedAt = DateTime.UtcNow
+                    UpdatedAt = DateTime.UtcNow,
+                    CreatedAt = DateTime.UtcNow
                 }
             );
 
-            // Seed User
+
             var hasher = new PasswordHasher();
             var (hash, salt) = hasher.HashPassword("password123");
 
@@ -47,13 +55,15 @@ namespace Infrastructure.Data
                 new User
                 {
                     Id = Guid.NewGuid(),
-                    UserName = "testuser",
-                    Email = "testuser@example.com",
-                    Phone = "+1234567890",
+                    UserName = "user",
+                    Email = "user@example.com",
+                    Phone = "1234567890",
                     PasswordHash = hash,
                     PasswordSalt = salt,
                     RoleId = roleId,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
+                    
                 }
             );
         }

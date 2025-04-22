@@ -1,26 +1,22 @@
 ﻿
+using Application.Handlers.City;
 using Application.Mappings;
+using Application.Queries.City;
 using Application.Usecases.Cities;
 using Application.Usecases.Movies;
 using Application.Usecases.Showtimes;
 using Application.Usecases.Theaters;
 using Application.Usecases.Users;
 using FluentValidation;
-using Microsoft.Extensions.Configuration;
+
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Application
 {
     public static class Application
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<GetAllCities>();
@@ -28,9 +24,13 @@ namespace Application
             services.AddScoped<GetAllUsers>();
             services.AddScoped<GetAllTheaters>();
             services.AddScoped<GetAllShowtimes>();
-
+           
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application).Assembly));
             services.AddValidatorsFromAssembly(typeof(Application).Assembly);
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(typeof(GetAllCitiesQueryHandler).Assembly);
+            });
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
             return services; 

@@ -9,6 +9,6 @@ namespace Application.Interfaces.AuthService
 {
     public interface IJwtTokenService
     {
-        string GenerateToken(User user);
+        string GenerateToken(User user); 
     }
 }

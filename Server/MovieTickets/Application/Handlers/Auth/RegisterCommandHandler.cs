@@ -43,7 +43,7 @@ namespace Application.Handlers.Auth
         {
             _logger.LogInformation("Processing registration for username: {Username}", request.Username);
 
-            // Validate RoleId
+  
             var role = await _roleRepository.GetByIdAsync(request.RoleId);
             if (role == null)
             {
@@ -56,7 +56,7 @@ namespace Application.Handlers.Auth
                 };
             }
 
-            // Check if username or email already exists
+       
             var existingUser = await _userRepository.GetByUsernameAsync(request.Username);
             if (existingUser != null)
             {
@@ -81,19 +81,22 @@ namespace Application.Handlers.Auth
                 };
             }
 
-            // Hash password with salt
+
             var (hash, salt) = _passwordHasher.HashPassword(request.Password);
 
-            // Create new user
+      
             var user = new User
             {
+                Id = Guid.NewGuid(),
                 UserName = request.Username,
                 Email = request.Email,
                 Phone = request.Phone,
                 PasswordHash = hash,
                 PasswordSalt = salt,
                 RoleId = request.RoleId,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+                
             };
 
             await _userRepository.AddAsync(user);

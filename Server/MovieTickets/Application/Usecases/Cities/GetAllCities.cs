@@ -26,7 +26,7 @@ namespace Application.Usecases.Cities
             _mapper = mapper;
         }
 
-        public async Task<ResponseModel<IEnumerable<CityDTO>>> Handle(GetAllCities request, CancellationToken cancellationToken)
+        public async Task<ResponseModel<IEnumerable<CityDTO>>> Handle(GetAllCitiesQuery request, CancellationToken cancellationToken)
         {
             var cities = await _cityRepository.GetAllAsync();
             return new ResponseModel<IEnumerable<CityDTO>>
@@ -35,7 +35,6 @@ namespace Application.Usecases.Cities
                 Message = "Cities retrieved successfully",
                 Data = _mapper.Map<IEnumerable<CityDTO>>(cities)
             };
-           
         }
     }
 }

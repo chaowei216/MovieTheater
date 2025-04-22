@@ -1,4 +1,6 @@
 using Application;
+using Application.Mappings;
+using AutoMapper;
 using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -15,53 +17,57 @@ namespace Presentation
         public static void Main(string[] args)
         {
             Directory.CreateDirectory("logs");
+
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
             Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json")
-                    .Build())
+                .ReadFrom.Configuration(configuration)
                 .CreateLogger();
 
             try
             {
                 Log.Information("Starting application...");
-                var builder = WebApplication.CreateBuilder(args);
-                var jwtSettings = builder.Configuration.GetSection("Jwt");
-                var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
 
-                builder.Services.AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = jwtSettings["Issuer"],
-                        ValidAudience = jwtSettings["Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(key)
-                    };
-                });
+                var builder = WebApplication.CreateBuilder(args);
 
                 builder.Host.UseSerilog();
 
-                builder.Services.AddControllers();
-                builder.Services.AddEndpointsApiExplorer();
-                builder.Services.AddSwaggerGen();
-                builder.Services.AddApplication(builder.Configuration);
+                Log.Information("Adding Application services...");
+                builder.Services.AddApplication();
+
+                Log.Information("Adding Infrastructure services...");
                 builder.Services.AddInfrastructure(builder.Configuration);
+
+                builder.Services.AddControllers();
                 builder.Services
                     .AddGraphQLServer()
                     .AddQueryType<Query>()
-                     .AddMutationType<Mutation>()
+                    .AddMutationType<Mutation>()
                     .AddFiltering()
                     .AddSorting()
                     .AddProjections();
 
+                builder.Services.AddCors(options =>
+                {
+                    options.AddPolicy("all", policy =>
+                        policy.AllowAnyOrigin()
+                              .AllowAnyHeader()
+                              .AllowAnyMethod());
+                });
+
+                builder.Services.AddHttpContextAccessor();
+                builder.Services.AddEndpointsApiExplorer();
+                builder.Services.AddSwaggerGen();
+           
+
+
+                builder.Services.Configure<HostOptions>(options =>
+                {
+                    options.BackgroundServiceExceptionBehavior = BackgroundServiceExceptionBehavior.Ignore;
+                });
+              
                 var app = builder.Build();
 
                 if (app.Environment.IsDevelopment())
@@ -69,19 +75,22 @@ namespace Presentation
                     app.UseSwagger();
                     app.UseSwaggerUI();
                 }
+
                 app.UseMiddleware<ErrorHandlingMiddleware>();
                 app.UseSerilogRequestLogging();
                 app.UseHttpsRedirection();
+                app.UseCors("all");
                 app.UseAuthentication();
                 app.UseAuthorization();
                 app.MapGraphQL();
                 app.MapControllers();
-
-                app.Run();
+                app.Run(); 
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not HostAbortedException && ex.Source != "Microsoft.EntityFrameworkCore.Design")
             {
-                Log.Fatal(ex, "Application failed to start.");
+                Log.Fatal(ex, "Web host terminated unexpectedly");
+                Console.WriteLine("ERROR: " + ex.Message);
+                Console.WriteLine(ex.ToString()); 
             }
             finally
             {

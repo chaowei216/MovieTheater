@@ -18,7 +18,7 @@ namespace Presentation.Controllers.Auth
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
-        {
+            {
             var response = await _mediator.Send(command);
             if (response.Success)
             {
@@ -37,5 +37,17 @@ namespace Presentation.Controllers.Auth
             }
             return BadRequest(response);
         }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenCommand command)
+        {
+            var response = await _mediator.Send(command);
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            return Unauthorized(response);
+        }
     }
 }
+

@@ -1,5 +1,5 @@
 ﻿using Application.Interfaces.AuthService;
-using Application.Models;
+using Application.Mappings.Models;
 using Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;

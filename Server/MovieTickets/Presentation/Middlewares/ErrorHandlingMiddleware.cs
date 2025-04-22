@@ -34,10 +34,11 @@ namespace Presentation.Middlewares
             var response = context.Response;
             response.ContentType = "application/json";
 
-            var errorResponse = new ResponseModel<object>
+            var errorResponse = new ResponseModel<object >
             {
                 Success = false,
                 Data = null
+
             };
 
             switch (exception)
@@ -49,7 +50,7 @@ namespace Presentation.Middlewares
                 case UnauthorizedAccessException _:
                     response.StatusCode = (int)HttpStatusCode.Unauthorized;
                     errorResponse.Message = _localizer["UnauthorizedError"].Value;
-                    break;
+                    break; 
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     errorResponse.Message = _localizer["InternalServerError"].Value;
