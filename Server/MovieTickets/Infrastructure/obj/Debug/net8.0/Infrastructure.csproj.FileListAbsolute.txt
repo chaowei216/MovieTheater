@@ -17,3 +17,25 @@ F:\MovieTickets\MovieTickets\Infrastructure\obj\Debug\net8.0\refint\Infrastructu
 F:\MovieTickets\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 F:\MovieTickets\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 F:\MovieTickets\MovieTickets\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Infrastructure.deps.json
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Infrastructure.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Infrastructure.pdb
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Common.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Domain.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Common.pdb
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Domain.pdb
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.AssemblyReference.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.AssemblyInfoInputs.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.AssemblyInfo.cs
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.CoreCompileInputs.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\refint\Infrastructure.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Application.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Infrastructure\bin\Debug\net8.0\Application.pdb

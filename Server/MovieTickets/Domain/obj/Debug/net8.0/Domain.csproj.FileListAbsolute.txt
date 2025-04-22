@@ -12,3 +12,18 @@ F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\refint\Domain.dll
 F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.pdb
 F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
 F:\MovieTickets\MovieTickets\Domain\obj\Debug\net8.0\ref\Domain.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\bin\Debug\net8.0\Domain.deps.json
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\bin\Debug\net8.0\Domain.runtimeconfig.json
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\bin\Debug\net8.0\Domain.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\bin\Debug\net8.0\Domain.pdb
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\refint\Domain.dll
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.pdb
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
+F:\New folder (2)\MovieTheater\Server\MovieTickets\Domain\obj\Debug\net8.0\ref\Domain.dll

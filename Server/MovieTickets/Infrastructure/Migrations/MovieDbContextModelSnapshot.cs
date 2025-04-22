@@ -17,7 +17,6 @@ namespace Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseCollation("utf8mb4_general_ci")
                 .HasAnnotation("ProductVersion", "8.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
@@ -85,6 +84,46 @@ namespace Infrastructure.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("Domain.Entities.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("IsRevoked")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("Domain.Entities.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -108,6 +147,15 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("04fc4ced-74ab-4d4e-9d1e-cf1e34a98be3"),
+                            CreatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 692, DateTimeKind.Utc).AddTicks(240),
+                            RoleName = "User",
+                            UpdatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 692, DateTimeKind.Utc).AddTicks(234)
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Room", b =>
@@ -358,9 +406,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<Guid>("RoleId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)")
-                        .HasDefaultValueSql("UUID()")
                         .UseCollation("utf8mb4_general_ci");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -376,6 +422,31 @@ namespace Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("ac25c7b9-b4a7-48be-b16a-44bdd8fedb37"),
+                            CreatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 694, DateTimeKind.Utc).AddTicks(6098),
+                            Email = "user@example.com",
+                            PasswordHash = "Xw2EFwGQsyLPLT5FYUIMI34nyBtZITMIrgbU8o6a3l8=",
+                            PasswordSalt = "I8GeLX/86sfrGEinYZ93+A==",
+                            Phone = "1234567890",
+                            RoleId = new Guid("04fc4ced-74ab-4d4e-9d1e-cf1e34a98be3"),
+                            UpdatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 694, DateTimeKind.Utc).AddTicks(6101),
+                            UserName = "user"
+                        });
+                });
+
+            modelBuilder.Entity("Domain.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("Domain.Entities.User", "User")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Room", b =>
@@ -505,6 +576,8 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.User", b =>
                 {
+                    b.Navigation("RefreshTokens");
+
                     b.Navigation("Tickets");
 
                     b.Navigation("Transactions");
