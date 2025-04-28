@@ -1,5 +1,7 @@
 import { useState } from "react"
 import {districtsByArea, favoriteCinemas} from "../data/area" 
+import { fakeAccounts } from "../data/accountdata";
+import { useNavigate } from "react-router-dom";
 
 const LoginRegister = () => {
     const [activeTab, setActiveTab] = useState("login");
@@ -37,9 +39,26 @@ const LoginRegister = () => {
 const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        const foundUser = fakeAccounts.find((user) => user.email === email && user.password === password);
+        if (!foundUser) {
+            alert("Tài khoản hoặc mật khẩu không đúng!");
+            return;
+        }
+        localStorage.setItem('user', JSON.stringify(foundUser));
+        if (foundUser.role === "ADMIN") {
+            navigate("/admin-dashboard");
+        } else if (foundUser.role === "STAFF") {
+            navigate("/staff-dashboard");
+        } else if (foundUser.role === "CUSTOMER") {
+            navigate("/");
+        }else {
+            alert("Tài khoản không hợp lệ!");
+            return;
+        }
         console.log(email, password);
     };
 
