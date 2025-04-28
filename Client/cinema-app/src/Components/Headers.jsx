@@ -1,9 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
-
-
+import { getUser } from "../utils/auth";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    const loggedUser = getUser();
+    setUser(loggedUser);
+  }, []); // Thêm dependency array
+
+  const logoutFunction = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/login");
+  }
 
   return (
     <header className="bg-gray-900 text-white sticky top-0 z-50 shadow-md w-full">
@@ -39,14 +51,29 @@ const Header = () => {
 
           {/* Login Button - Chiếm 1/3 bên phải */}
           <div className="flex-1 flex justify-end">
-            <button onClick={() => navigate("/login")}
-             className="bg-yellow-500 hover:bg-yellow-600
-              text-gray-900 font-medium py-2 px-4 rounded-md transition duration-300 transform hover:scale-105 whitespace-nowrap"
+            {user ? (
+              <div className="relative group">
+                <button className="bg-yellow-500 text-gray-900 font-medium py-2 px-4 rounded-md">
+                  {user.email}
+                </button>
+                {/* Dropdown Menu */}
+                <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 bg-white text-black mt-2 py-2 rounded shadow-lg">
+                  <button onClick={() => navigate("/profile")} className="block px-4 py-2 hover:bg-gray-100 w-full text-left">
+                    Trang cá nhân
+                  </button>
+                  <button onClick={logoutFunction} className="block px-4 py-2 hover:bg-gray-100 w-full text-left">
+                    Đăng xuất
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button onClick={() => navigate("/login")}
+                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium py-2 px-4 rounded-md transition duration-300 transform hover:scale-105 whitespace-nowrap"
               >
-              Đăng nhập
-            </button>
+                Đăng nhập
+              </button>
+            )}
           </div>
-         
         </div>
       </div>
     </header>
