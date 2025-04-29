@@ -3,7 +3,7 @@ import {districtsByArea, favoriteCinemas} from "../data/area"
 import { fakeAccounts } from "../data/accountdata";
 import { useNavigate } from "react-router-dom";
 
-const LoginRegister = () => {
+const LoginRegister = ({setUser }) => {
     const [activeTab, setActiveTab] = useState("login");
 
     return (
@@ -26,7 +26,7 @@ const LoginRegister = () => {
 
                 <div className="p-6">
                     {activeTab === "login" ? (
-                        <LoginForm />
+                        <LoginForm setUser={setUser} />
                     ) : (
                         <RegisterForm />
                     )}
@@ -36,7 +36,7 @@ const LoginRegister = () => {
     );
 };
 
-const LoginForm = () => {
+const LoginForm = ({setUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -49,6 +49,7 @@ const LoginForm = () => {
             return;
         }
         localStorage.setItem('user', JSON.stringify(foundUser));
+        setUser(foundUser);
         if (foundUser.role === "ADMIN") {
             navigate("/admin-dashboard");
         } else if (foundUser.role === "STAFF") {

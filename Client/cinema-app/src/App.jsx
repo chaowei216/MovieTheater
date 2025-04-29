@@ -4,12 +4,18 @@ import Header from "./Components/Headers";
 import Footer from "./Components/Footer";
 // import NowShowing from "./Pages/NowShowing";
 // import ComingSoon from "./Pages/ComingSoon";
+import AdminDashboard from "./Admin/AdminDashboard";
 import MovieDetail from "./Pages/MovieDetail";
 import './index.css'
 import LoginRegister from "./Pages/LoginRegister";
 import { getUser } from "./utils/auth";
+import { useState, useEffect} from "react";
 function App() {
-  const user = getUser();
+  const [user,setUser] = useState(null);
+  useEffect(() => {
+    const storedUser = getUser();
+    setUser(storedUser)
+  },[])
   return (
     <Router>
       {/* Header hiển thị trên mọi trang */}
@@ -21,9 +27,9 @@ function App() {
         {/* <Route path="/now-showing" element={<NowShowing />} />
         <Route path="/coming-soon" element={<ComingSoon />} /> */}
         {/* Route dành cho từng role */}
-        {/* {user?.role === "ADMIN" && <Route path="/admin-dashboard" element={<AdminDashboard />} />}
-        {user?.role === "STAFF" && <Route path="/staff-dashboard" element={<StaffDashboard />} />} */}
-        <Route path="/login" element={<LoginRegister/>}/>
+         {user?.role === "ADMIN" && <Route path="/admin-dashboard" element={<AdminDashboard setUser={setUser}/>}/>}
+        {/* {user?.role === "STAFF" && <Route path="/staff-dashboard" element={<StaffDashboard />} />}  */}
+        <Route path="/login" element={<LoginRegister setUser={setUser}/>}/>
         <Route path="/movie/:id" element={<MovieDetail />} />
       </Routes>
 
