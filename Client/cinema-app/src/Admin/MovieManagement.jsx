@@ -65,6 +65,12 @@ const MovieManagement = () => {
                     <p className="text-sm text-gray-600 mb-2">
                         <strong>Rating:</strong> {movie.rating || "N/A"}
                     </p>
+                    <p className="text-sm text-gray-600 mb-1">
+                    <strong>Thời lượng:</strong> {movie.duration || "N/A"}
+                </p>
+                <p className="text-sm text-gray-600 mb-2">
+                    <strong>Khởi chiếu:</strong> {movie.releaseDate || "N/A"}
+                </p>
                     <div className="flex justify-between">
                         <button 
                             onClick={() => handleEdit(type, movie)}
@@ -163,6 +169,8 @@ const MovieForm = ({ movie, onSave, onCancel, type }) => {
         genre: movie?.genre || "",
         rating: movie?.rating || "",
         poster: movie?.poster || "",
+        duration: movie?.duration || "",
+        releaseDate: movie?.releaseDate || "",
         type: type,
         id: movie?.id || null,
     });
@@ -235,6 +243,35 @@ const MovieForm = ({ movie, onSave, onCancel, type }) => {
                     id="poster"
                     name="poster"
                     value={formData.poster}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    required
+                />
+            </div>
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="duration">
+                    Thời lượng (phút)
+                </label>
+                <input
+                    type="text"
+                    id="duration"
+                    name="duration"
+                    value={formData.duration}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    required
+                />
+            </div>
+
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="releaseDate">
+                    Ngày khởi chiếu
+                </label>
+                <input
+                    type="text"
+                    id="releaseDate"
+                    name="releaseDate"
+                    value={formData.releaseDate}
                     onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     required
