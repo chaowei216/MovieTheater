@@ -10,6 +10,7 @@ import './index.css'
 import LoginRegister from "./Pages/LoginRegister";
 import { getUser } from "./utils/auth";
 import { useState, useEffect} from "react";
+import MovieManagement from "./Admin/MovieManagement";
 function App() {
   const [user,setUser] = useState(null);
   useEffect(() => {
@@ -27,7 +28,12 @@ function App() {
         {/* <Route path="/now-showing" element={<NowShowing />} />
         <Route path="/coming-soon" element={<ComingSoon />} /> */}
         {/* Route dành cho từng role */}
-         {user?.role === "ADMIN" && <Route path="/admin-dashboard" element={<AdminDashboard setUser={setUser}/>}/>}
+        {user?.role === "ADMIN" && (
+    <>
+      <Route path="/admin-dashboard" element={<AdminDashboard setUser={setUser} />} />
+      <Route path="/admin-dashboard/movies" element={<MovieManagement />} />
+    </>
+  )}
         {/* {user?.role === "STAFF" && <Route path="/staff-dashboard" element={<StaffDashboard />} />}  */}
         <Route path="/login" element={<LoginRegister setUser={setUser}/>}/>
         <Route path="/movie/:id" element={<MovieDetail />} />
