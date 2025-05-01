@@ -25,7 +25,11 @@ namespace Domain.Entities
         [Required(ErrorMessage = "Release date is required.")]
         public DateTime ReleaseDate { get; set; }
 
-        
+
+        [Required(ErrorMessage = "End date is required.")]
+        public DateTime EndDate { get; set; }
+
         public ICollection<Showtime> Showtimes { get; set; } = new List<Showtime>();
+        public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
     }
 }

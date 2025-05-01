@@ -21,10 +21,11 @@ namespace Application.Mappings
                 .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.CreateAt, opt => opt.MapFrom(src => src.CreatedAt));
             #endregion
+            #region movie
             CreateMap<Movie, MovieDTO>()
                 .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.CreateAt, opt => opt.MapFrom(src => src.CreatedAt));
-
+            #endregion
             CreateMap<Role, RoleDTO>()
                 .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.CreateAt, opt => opt.MapFrom(src => src.CreatedAt));
@@ -43,10 +44,8 @@ namespace Application.Mappings
                 .ForMember(dest => dest.AvailableSeats, opt => opt.MapFrom(src => src.AvailableSeat))
                 .ForMember(dest => dest.CreateAt, opt => opt.MapFrom(src => src.CreatedAt));
 
-            CreateMap<Theater, TheaterDTO>()
-                .ForMember(dest => dest.TheaterId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City != null ? src.City.CityName : null))
-                .ForMember(dest => dest.CreateAt, opt => opt.MapFrom(src => src.CreatedAt));
+            CreateMap<Theater, TheaterDTO>().ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
+                
 
             CreateMap<Ticket, TicketDTO>()
                 .ForMember(dest => dest.TicketId, opt => opt.MapFrom(src => src.Id))

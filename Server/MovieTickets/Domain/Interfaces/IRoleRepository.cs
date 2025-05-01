@@ -10,5 +10,6 @@ namespace Domain.Interfaces
     public interface IRoleRepository
     {
         Task<Role?> GetByIdAsync(Guid roleId);
+        Task<Role?> GetByNameAsync(string name);
     }
 }

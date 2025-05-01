@@ -5398,11 +5398,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj",
+      "projectUniqueName": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj",
+      "projectPath": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\triho\\.nuget\\packages\\",
-      "outputPath": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Domain\\obj\\",
+      "outputPath": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5435,7 +5435,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -5522,7 +5523,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

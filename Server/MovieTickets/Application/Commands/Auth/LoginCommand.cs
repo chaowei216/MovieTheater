@@ -10,7 +10,7 @@ namespace Application.Commands.Auth
 {
     public class LoginCommand : IRequest<ResponseModel<LoginResponse>>
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string Email { get; set; } = null!;
+        public string Password { get; set; } = null!;
     }
 }

@@ -1,11 +1,16 @@
 ﻿using Application.Queries.City;
+using Application.Queries.Movies;
+using Application.Queries.Theaters;
 using Application.Usecases.Cities;
 using Application.Usecases.Movies;
+using Application.Usecases.Theaters;
 using Application.Usecases.Users;
 using Common.DTOs.City;
 using Common.DTOs.Movie;
+using Common.DTOs.Theater;
 using Common.DTOs.User;
 using Common.Models;
+using Domain.Entities;
 using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Data;
@@ -16,35 +21,43 @@ namespace MovieTickets.Presentation.GraphQL.Queries
 {
     public class Query
     {
- 
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public async Task<ResponseModel<IQueryable<CityDTO>>> GetCities([Service] IMediator mediator)
+        public async Task<IEnumerable<CityDTO>> GetCities([Service] GetAllCities getAllCitiesUseCase)
         {
-            var cities = await mediator.Send(new GetAllCitiesQuery());
-            return new ResponseModel<IQueryable<CityDTO>>
+            var result = await getAllCitiesUseCase.Handle(new GetAllCitiesQuery(), CancellationToken.None);
+            if (!result.Success)
             {
-                Success = true,
-                Message = "Cities retrieved successfully",
-                Data = cities.Data.AsQueryable()
-            };
+                throw new GraphQLException(result.Message);
+            }
+            return result.Data;
         }
+
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public async Task<IQueryable<MovieDTO>> GetMovies([Service] GetMoviesByTitle useCase, string? title)
+        public async Task<IQueryable<Movie>> GetMovies([Service] GetAllMovies useCase)
         {
-            var movies = await useCase.ExecuteAsync(title ?? "");
-            return movies.AsQueryable();
+            var result = await useCase.Handle(new GetAllMoviesQuery(), CancellationToken.None);
+            if (!result.Success)
+            {
+                throw new GraphQLException(result.Message);
+            }
+            return result.Data.AsQueryable();
         }
+
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public async Task<IQueryable<UserDTO>> GetUsers([Service] GetAllUsers useCase)
+        public async Task<IEnumerable<TheaterDTO>> GetTheater([Service] GetAllTheaters getAllTheaters )
         {
-            var users = await useCase.ExecuteAsync();
-            return users.AsQueryable();
+            var theaters = await getAllTheaters.Handle(new GetAllTheatersQuery(), CancellationToken.None);
+            if (!theaters.Success)
+            {
+                throw new GraphQLException(theaters.Message);
+            }
+            return theaters.Data;
         }
     }
 }

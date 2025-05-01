@@ -44,10 +44,10 @@ namespace Application.Handlers.Auth
             _logger.LogInformation("Processing registration for username: {Username}", request.Username);
 
   
-            var role = await _roleRepository.GetByIdAsync(request.RoleId);
+            var role = await _roleRepository.GetByNameAsync("Customer");    
             if (role == null)
             {
-                _logger.LogWarning("Registration failed: Role {RoleId} not found", request.RoleId);
+                _logger.LogWarning("Registration failed: Role {RoleId} not found", role);
                 return new ResponseModel<UserDTO>
                 {
                     Success = false,
@@ -93,7 +93,7 @@ namespace Application.Handlers.Auth
                 Phone = request.Phone,
                 PasswordHash = hash,
                 PasswordSalt = salt,
-                RoleId = request.RoleId,
+                RoleId = role.Id,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
                 

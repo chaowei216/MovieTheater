@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nm9qqw5QOz8=",
+  "dgSpecHash": "qVLtJ2khOYc=",
   "success": true,
-  "projectFilePath": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Presentation\\Presentation.csproj",
+  "projectFilePath": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\triho\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\triho\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

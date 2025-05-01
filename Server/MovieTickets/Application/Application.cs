@@ -1,7 +1,4 @@
-﻿
-using Application.Handlers.City;
-using Application.Mappings;
-using Application.Queries.City;
+﻿using Application.Mappings;
 using Application.Usecases.Cities;
 using Application.Usecases.Movies;
 using Application.Usecases.Showtimes;
@@ -21,17 +18,15 @@ namespace Application
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<GetAllCities>();
             services.AddScoped<GetMoviesByTitle>();
+            services.AddScoped<GetAllMovies>();
             services.AddScoped<GetAllUsers>();
             services.AddScoped<GetAllTheaters>();
             services.AddScoped<GetAllShowtimes>();
            
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application).Assembly));
-            services.AddValidatorsFromAssembly(typeof(Application).Assembly);
-            services.AddMediatR(cfg =>
-            {
-                cfg.RegisterServicesFromAssembly(typeof(GetAllCitiesQueryHandler).Assembly);
-            });
+            services.AddValidatorsFromAssembly(typeof(Application).Assembly);         
             services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 
             return services; 
         }

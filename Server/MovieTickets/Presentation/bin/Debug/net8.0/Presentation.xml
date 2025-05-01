@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:Presentation.Controllers.Auth.AuthController.Login(Application.Commands.Auth.LoginCommand)">
+            <summary>
+            Login endpoint for user authentication.
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Presentation.Controllers.Auth.AuthController.Register(Application.Commands.Auth.RegisterCommand)">
+            <summary>
+            Register endpoint for customer registration.
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Presentation.Controllers.Auth.AuthController.RefreshToken(Application.Commands.Auth.RefreshTokenCommand)">
+            <summary>
+            Refresh token endpoint for generating a new access token.
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -5516,11 +5516,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Application\\Application.csproj",
+      "projectPath": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\triho\\.nuget\\packages\\",
-      "outputPath": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Application\\obj\\",
+      "outputPath": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5542,11 +5542,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Common\\Common.csproj": {
-              "projectPath": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Common\\Common.csproj"
+            "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Common\\Common.csproj": {
+              "projectPath": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Common\\Common.csproj"
             },
-            "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj": {
-              "projectPath": "F:\\New folder (2)\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj"
+            "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Project Personal\\MovieTheater\\Server\\MovieTickets\\Domain\\Domain.csproj"
             }
           }
         }
@@ -5560,7 +5560,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -5651,7 +5652,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,10 +13,10 @@ namespace Application.Usecases.Showtimes
 {
     public class GetAllShowtimes
     {
-        private readonly IGenericRepository<Showtime> _showtimeRepository;
+        private readonly IMovieRepository<Showtime> _showtimeRepository;
         private readonly IMapper _mapper;
 
-        public GetAllShowtimes(IGenericRepository<Showtime> showtimeRepository, IMapper mapper)
+        public GetAllShowtimes(IMovieRepository<Showtime> showtimeRepository, IMapper mapper)
         {
             _showtimeRepository = showtimeRepository;
             _mapper = mapper;

@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain.Entities
+{
+    public class MovieActor : BaseEntity
+    {
+        public Guid MovieId { get; set; }
+        public Movie Movie { get; set; } = null!;
+        public Guid ActorId { get; set; }
+        public Actor Actor { get; set; } = null!;
+        public string CharacterName { get; set; } = null!;
+    }
+}

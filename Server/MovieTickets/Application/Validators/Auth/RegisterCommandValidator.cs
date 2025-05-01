@@ -30,8 +30,7 @@ namespace Application.Validators.Auth
                 .Matches(@"^\+?[1-9]\d{1,14}$").When(x => !string.IsNullOrEmpty(x.Phone))
                 .WithMessage(localizer.GetString("InvalidPhone"));
 
-            RuleFor(x => x.RoleId)
-                .NotEmpty().WithMessage(localizer.GetString("RoleRequired"));
+        
         }
     }
 }

@@ -4,10 +4,12 @@ using AutoMapper;
 using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using MovieTickets.Presentation.GraphQL.Queries;
 using Presentation.GraphQL.Mutations;
 using Presentation.Middlewares;
 using Serilog;
+using System.Reflection;
 using System.Text;
 
 namespace Presentation
@@ -59,8 +61,19 @@ namespace Presentation
 
                 builder.Services.AddHttpContextAccessor();
                 builder.Services.AddEndpointsApiExplorer();
-                builder.Services.AddSwaggerGen();
-           
+                builder.Services.AddSwaggerGen(options =>
+                {
+                    options.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                        Title = "Movie API",
+                        Version = "v1"
+                    });
+                
+                    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    options.IncludeXmlComments(xmlPath);
+                });
+
 
 
                 builder.Services.Configure<HostOptions>(options =>
@@ -70,11 +83,11 @@ namespace Presentation
               
                 var app = builder.Build();
 
-                if (app.Environment.IsDevelopment())
-                {
+                //if (app.Environment.IsDevelopment())
+                //{
                     app.UseSwagger();
                     app.UseSwaggerUI();
-                }
+                
 
                 app.UseMiddleware<ErrorHandlingMiddleware>();
                 app.UseSerilogRequestLogging();

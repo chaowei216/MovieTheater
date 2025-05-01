@@ -2,11 +2,6 @@
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
@@ -23,6 +18,11 @@ namespace Infrastructure.Repositories
         {
             return await _context.Roles
                 .FirstOrDefaultAsync(r => r.Id == roleId);
+        }
+        public async Task<Role?> GetByNameAsync(string roleName)
+        {
+            return await _context.Roles
+                .FirstOrDefaultAsync(r => r.RoleName == roleName);
         }
     }
 }

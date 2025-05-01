@@ -1,0 +1,35 @@
+2025-05-01 16:06:11.578 +07:00 [INF] Starting application...
+2025-05-01 16:06:12.087 +07:00 [INF] Adding Application services...
+2025-05-01 16:06:12.193 +07:00 [INF] Adding Infrastructure services...
+2025-05-01 16:06:12.513 +07:00 [FTL] Web host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Application.Usecases.Movies.GetAllMovies Lifetime: Scoped ImplementationType: Application.Usecases.Movies.GetAllMovies': Unable to resolve service for type 'Domain.Interfaces.IMovieRepository' while attempting to activate 'Application.Usecases.Movies.GetAllMovies'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Application.Usecases.Movies.GetAllMovies Lifetime: Scoped ImplementationType: Application.Usecases.Movies.GetAllMovies': Unable to resolve service for type 'Domain.Interfaces.IMovieRepository' while attempting to activate 'Application.Usecases.Movies.GetAllMovies'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Domain.Interfaces.IMovieRepository' while attempting to activate 'Application.Usecases.Movies.GetAllMovies'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Presentation.Program.Main(String[] args) in D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\Program.cs:line 84
+2025-05-01 16:07:09.542 +07:00 [INF] Starting application...
+2025-05-01 16:07:09.727 +07:00 [INF] Adding Application services...
+2025-05-01 16:07:09.795 +07:00 [INF] Adding Infrastructure services...
+2025-05-01 16:07:14.617 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-05-01 16:07:14.682 +07:00 [INF] HTTP GET /graphql responded 301 in 70.4298 ms
+2025-05-01 16:07:14.943 +07:00 [INF] HTTP GET /graphql/nitro-config.json responded 200 in 4.5004 ms
+2025-05-01 16:07:15.988 +07:00 [INF] HTTP GET /graphql/schema.graphql responded 200 in 704.6461 ms
+2025-05-01 16:07:17.514 +07:00 [INF] HTTP GET /service-worker.js responded 304 in 292.5312 ms
+2025-05-01 16:07:19.543 +07:00 [INF] HTTP POST /graphql responded 200 in 2474.0081 ms
+2025-05-01 16:07:26.117 +07:00 [INF] HTTP POST /graphql responded 200 in 303.4355 ms
+2025-05-01 16:07:46.721 +07:00 [INF] HTTP GET /service-worker.js responded 304 in 55.4093 ms
+2025-05-01 16:08:13.619 +07:00 [INF] HTTP GET /service-worker.js responded 304 in 56.9736 ms
+2025-05-01 16:08:16.632 +07:00 [INF] HTTP POST /graphql responded 200 in 362.2312 ms
+2025-05-01 16:12:14.886 +07:00 [INF] HTTP GET /service-worker.js responded 304 in 136.9318 ms

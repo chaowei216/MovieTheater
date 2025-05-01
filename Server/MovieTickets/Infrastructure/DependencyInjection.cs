@@ -1,22 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using AutoMapper;
-
-using Infrastructure.Data;
-
-
-using Infrastructure.Repositories;
-using Application.Interfaces.IRepositories;
+﻿using System.Text;
 using Application.Commands.Auth;
 using Application.Interfaces.AuthService;
-using Domain.Interfaces;
-using Infrastructure.Services;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Application.Interfaces.IRepositories;
 using Application.Mappings.Models;
+using Domain.Interfaces;
+using Infrastructure.Data;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 
 namespace Infrastructure
@@ -33,8 +28,9 @@ namespace Infrastructure
                     mysqlOptions => mysqlOptions.EnableRetryOnFailure());
                  
             });
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IMovieRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IRefreshTokenService,RefreshTokenService>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();

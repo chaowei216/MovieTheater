@@ -14,7 +14,7 @@ namespace Infrastructure.Repositories
 {
 
 
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public class GenericRepository<T> : IMovieRepository<T> where T : BaseEntity
     {
         private readonly MovieDbContext _context;
         private readonly DbSet<T> _dbSet;

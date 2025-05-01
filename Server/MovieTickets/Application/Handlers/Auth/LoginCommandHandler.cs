@@ -45,14 +45,14 @@ namespace Application.Handlers.Auth
         {
             try
             {
-                _logger.LogInformation("Processing login for username: {Username}", request.Username);
+                _logger.LogInformation("Processing login for username: {Username}", request.Email);
 
         
-                _logger.LogDebug("Attempting to retrieve user with username: {Username}", request.Username);
-                var user = await _userRepository.GetByUsernameAsync(request.Username);
+                _logger.LogDebug("Attempting to retrieve user with username: {Username}", request.Email);
+                var user = await _userRepository.GetByUsernameAsync(request.Email);
                 if (user == null)
                 {
-                    _logger.LogWarning("Login failed: User {Username} not found", request.Username);
+                    _logger.LogWarning("Login failed: User {Username} not found", request.Email);
                     return new ResponseModel<LoginResponse>
                     {
                         Success = false,
@@ -60,13 +60,13 @@ namespace Application.Handlers.Auth
                         Data = null
                     };
                 }
-                _logger.LogDebug("User {Username} found with ID: {UserId}", request.Username, user.Id);
+                _logger.LogDebug("User {Username} found with ID: {UserId}", request.Email, user.Id);
 
           
-                _logger.LogDebug("Verifying password for user: {Username}", request.Username);
+                _logger.LogDebug("Verifying password for user: {Username}", request.Email);
                 if (!_passwordHasher.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
                 {
-                    _logger.LogWarning("Login failed: Invalid password for username {Username}", request.Username);
+                    _logger.LogWarning("Login failed: Invalid password for username {Username}", request.Email);
                     return new ResponseModel<LoginResponse>
                     {
                         Success = false,
@@ -74,22 +74,22 @@ namespace Application.Handlers.Auth
                         Data = null
                     };
                 }
-                _logger.LogDebug("Password verified successfully for user: {Username}", request.Username);
+                _logger.LogDebug("Password verified successfully for user: {Username}", request.Email);
 
-                _logger.LogDebug("Generating JWT token for user: {Username}", request.Username);
+                _logger.LogDebug("Generating JWT token for user: {Username}", request.Email);
                 var token = _jwtTokenService.GenerateToken(user);
-                _logger.LogDebug("JWT token generated successfully for user: {Username}", request.Username);
+                _logger.LogDebug("JWT token generated successfully for user: {Username}", request.Email);
 
-                _logger.LogDebug("Generating refresh token for user: {Username}", request.Username);
+                _logger.LogDebug("Generating refresh token for user: {Username}", request.Email);
                 var refreshToken = _refreshTokenService.GenerateRefreshToken(user);
-                _logger.LogDebug("Refresh token generated successfully for user: {Username}", request.Username);
+                _logger.LogDebug("Refresh token generated successfully for user: {Username}", request.Email);
 
 
-                _logger.LogDebug("Saving refresh token for user: {Username}", request.Username);
+                _logger.LogDebug("Saving refresh token for user: {Username}", request.Email);
                 await _refreshTokenRepository.AddAsync(refreshToken);
-                _logger.LogDebug("Refresh token saved successfully for user: {Username}", request.Username);
+                _logger.LogDebug("Refresh token saved successfully for user: {Username}", request.Email);
 
-                _logger.LogInformation("Login successful for username: {Username}", request.Username);
+                _logger.LogInformation("Login successful for username: {Username}", request.Email);
 
                 return new ResponseModel<LoginResponse>
                 {
@@ -106,7 +106,7 @@ namespace Application.Handlers.Auth
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while processing login for username: {Username}", request.Username);
+                _logger.LogError(ex, "An error occurred while processing login for username: {Username}", request.Email);
                 throw; 
             }
         }

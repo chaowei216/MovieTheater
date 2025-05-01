@@ -17,10 +17,10 @@ namespace Application.Usecases.Cities
 
     public class GetAllCities
     {
-        private readonly IGenericRepository<City> _cityRepository;
+        private readonly IMovieRepository<City> _cityRepository;
         private readonly IMapper _mapper;
 
-        public GetAllCities(IGenericRepository<City> cityRepository, IMapper mapper)
+        public GetAllCities(IMovieRepository<City> cityRepository, IMapper mapper)
         {
             _cityRepository = cityRepository ?? throw new ArgumentNullException(nameof(_cityRepository));
             _mapper = mapper;

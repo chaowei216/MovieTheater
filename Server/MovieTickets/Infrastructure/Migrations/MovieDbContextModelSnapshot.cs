@@ -22,6 +22,91 @@ namespace Infrastructure.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Entities.Actor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<string>("ActorDescription")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ActorImage")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("ActorName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Sex")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Actors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("fd793ab2-4e49-48d5-85c6-68b9c12971de"),
+                            ActorDescription = "Known for action and sci-fi roles.",
+                            ActorImage = "keanu_reeves.jpg",
+                            ActorName = "Keanu Reeves",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1579),
+                            DateOfBirth = new DateTime(1964, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Sex = "Male",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1579)
+                        },
+                        new
+                        {
+                            Id = new Guid("43d0c1ba-ab3b-40ab-b231-7fc3bf4c476c"),
+                            ActorDescription = "Versatile actor in drama and thriller.",
+                            ActorImage = "leonardo_dicaprio.jpg",
+                            ActorName = "Leonardo DiCaprio",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1581),
+                            DateOfBirth = new DateTime(1974, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Sex = "Male",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1581)
+                        },
+                        new
+                        {
+                            Id = new Guid("d866ff45-12e9-4e71-9af3-19c11e7f8aae"),
+                            ActorDescription = "Acclaimed for emotional performances.",
+                            ActorImage = "kate_winslet.jpg",
+                            ActorName = "Kate Winslet",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1583),
+                            DateOfBirth = new DateTime(1975, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Sex = "Female",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1584)
+                        },
+                        new
+                        {
+                            Id = new Guid("20fc1583-66a4-4192-a092-35727200538b"),
+                            ActorDescription = "Known for strong action roles.",
+                            ActorImage = "carrie_anne_moss.jpg",
+                            ActorName = "Carrie-Anne Moss",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1585),
+                            DateOfBirth = new DateTime(1967, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Sex = "Female",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1585)
+                        });
+                });
+
             modelBuilder.Entity("Domain.Entities.City", b =>
                 {
                     b.Property<Guid>("Id")
@@ -45,6 +130,22 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("6ddd6364-bd03-415f-bbe7-554a428c36a6"),
+                            CityName = "Hà Nội",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1430),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1430)
+                        },
+                        new
+                        {
+                            Id = new Guid("0026cc79-bbc8-42ac-a90a-a3dd3e0a727b"),
+                            CityName = "Hồ Chí Minh",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1431),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1432)
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Movie", b =>
@@ -65,6 +166,9 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<bool>("IsPublic")
                         .HasColumnType("tinyint(1)");
 
@@ -82,6 +186,130 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("764fb557-05ce-4bca-9d04-999f336e6b98"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1532),
+                            Description = "A hacker discovers a mysterious reality.",
+                            Duration = 136,
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPublic = true,
+                            MovieName = "The Matrix",
+                            ReleaseDate = new DateTime(1999, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1532)
+                        },
+                        new
+                        {
+                            Id = new Guid("7f1fa5b9-47b2-429d-90e8-d0a0cd1a6a3a"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1534),
+                            Description = "A thief enters dreams to steal secrets.",
+                            Duration = 148,
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPublic = true,
+                            MovieName = "Inception",
+                            ReleaseDate = new DateTime(2010, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1535)
+                        },
+                        new
+                        {
+                            Id = new Guid("a23e28a1-4aab-40b4-b160-f60f27f71051"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1536),
+                            Description = "A love story aboard a doomed ship.",
+                            Duration = 195,
+                            EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPublic = true,
+                            MovieName = "Titanic",
+                            ReleaseDate = new DateTime(1997, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1537)
+                        });
+                });
+
+            modelBuilder.Entity("Domain.Entities.MovieActor", b =>
+                {
+                    b.Property<Guid>("MovieId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<Guid>("ActorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<string>("CharacterName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("Id")
+                        .HasDefaultValueSql("UUID()")
+                        .UseCollation("utf8mb4_general_ci");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("MovieId", "ActorId");
+
+                    b.HasIndex("ActorId");
+
+                    b.ToTable("MovieActors");
+
+                    b.HasData(
+                        new
+                        {
+                            MovieId = new Guid("764fb557-05ce-4bca-9d04-999f336e6b98"),
+                            ActorId = new Guid("fd793ab2-4e49-48d5-85c6-68b9c12971de"),
+                            CharacterName = "Neo",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1608),
+                            Id = new Guid("3f1c8d1d-41ad-483e-a1a1-8d3c07fd0833"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1609)
+                        },
+                        new
+                        {
+                            MovieId = new Guid("764fb557-05ce-4bca-9d04-999f336e6b98"),
+                            ActorId = new Guid("20fc1583-66a4-4192-a092-35727200538b"),
+                            CharacterName = "Trinity",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1611),
+                            Id = new Guid("a77c1cb4-8cbe-4881-8e82-2c288cc98b4a"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1611)
+                        },
+                        new
+                        {
+                            MovieId = new Guid("7f1fa5b9-47b2-429d-90e8-d0a0cd1a6a3a"),
+                            ActorId = new Guid("43d0c1ba-ab3b-40ab-b231-7fc3bf4c476c"),
+                            CharacterName = "Dom Cobb",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1613),
+                            Id = new Guid("7162da6f-9692-4145-a94b-2fc09f656672"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1613)
+                        },
+                        new
+                        {
+                            MovieId = new Guid("a23e28a1-4aab-40b4-b160-f60f27f71051"),
+                            ActorId = new Guid("43d0c1ba-ab3b-40ab-b231-7fc3bf4c476c"),
+                            CharacterName = "Jack Dawson",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1617),
+                            Id = new Guid("b44a066b-2c5a-44ae-bc7c-3c9e8906c801"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1617)
+                        },
+                        new
+                        {
+                            MovieId = new Guid("a23e28a1-4aab-40b4-b160-f60f27f71051"),
+                            ActorId = new Guid("d866ff45-12e9-4e71-9af3-19c11e7f8aae"),
+                            CharacterName = "Rose DeWitt Bukater",
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1619),
+                            Id = new Guid("ad50b5d4-a580-4686-baf3-29733d3d4da2"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1619)
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.RefreshToken", b =>
@@ -151,10 +379,31 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("04fc4ced-74ab-4d4e-9d1e-cf1e34a98be3"),
-                            CreatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 692, DateTimeKind.Utc).AddTicks(240),
-                            RoleName = "User",
-                            UpdatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 692, DateTimeKind.Utc).AddTicks(234)
+                            Id = new Guid("215c6bbf-bdf0-400d-96c3-6aad720bc906"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3056),
+                            RoleName = "Admin",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3059)
+                        },
+                        new
+                        {
+                            Id = new Guid("9cf2f0f7-caf8-4483-b3b6-0d8f5fdd9a65"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3064),
+                            RoleName = "Staff Manager",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3065)
+                        },
+                        new
+                        {
+                            Id = new Guid("77a2089b-4eaa-499d-861e-4f05b6179669"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3066),
+                            RoleName = "Staff",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3067)
+                        },
+                        new
+                        {
+                            Id = new Guid("be1e013d-af34-40de-aff9-13b9df5bb8b3"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3072),
+                            RoleName = "Customer",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 223, DateTimeKind.Utc).AddTicks(3072)
                         });
                 });
 
@@ -272,6 +521,44 @@ namespace Infrastructure.Migrations
                     b.HasIndex("CityId");
 
                     b.ToTable("Theaters");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("4b7a6550-d220-459b-9764-002550f35674"),
+                            CityId = new Guid("6ddd6364-bd03-415f-bbe7-554a428c36a6"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1476),
+                            Location = "Số 1, Phố Ngô Quyền, Hà Nội",
+                            TheaterName = "CGV Hà Nội",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1476)
+                        },
+                        new
+                        {
+                            Id = new Guid("7022649f-3afa-4407-aea5-160f8bc5e4f5"),
+                            CityId = new Guid("6ddd6364-bd03-415f-bbe7-554a428c36a6"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1479),
+                            Location = "Số 2, Phố Trần Duy Hưng, Hà Nội",
+                            TheaterName = "Lotte Cinema Hà Nội",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1480)
+                        },
+                        new
+                        {
+                            Id = new Guid("cb92edde-ff81-40ae-8b5b-7dc4b4944b2f"),
+                            CityId = new Guid("0026cc79-bbc8-42ac-a90a-a3dd3e0a727b"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1481),
+                            Location = "Số 10, Phố Nguyễn Huệ, Hồ Chí Minh",
+                            TheaterName = "CGV Hồ Chí Minh",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1482)
+                        },
+                        new
+                        {
+                            Id = new Guid("1fbea266-85f7-44f9-8ac1-2d46a4a63dcc"),
+                            CityId = new Guid("0026cc79-bbc8-42ac-a90a-a3dd3e0a727b"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1483),
+                            Location = "Số 20, Phố Lý Tự Trọng, Hồ Chí Minh",
+                            TheaterName = "BHD Star Cineplex",
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1484)
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Ticket", b =>
@@ -426,16 +713,71 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ac25c7b9-b4a7-48be-b16a-44bdd8fedb37"),
-                            CreatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 694, DateTimeKind.Utc).AddTicks(6098),
-                            Email = "user@example.com",
-                            PasswordHash = "Xw2EFwGQsyLPLT5FYUIMI34nyBtZITMIrgbU8o6a3l8=",
-                            PasswordSalt = "I8GeLX/86sfrGEinYZ93+A==",
-                            Phone = "1234567890",
-                            RoleId = new Guid("04fc4ced-74ab-4d4e-9d1e-cf1e34a98be3"),
-                            UpdatedAt = new DateTime(2025, 4, 22, 5, 16, 15, 694, DateTimeKind.Utc).AddTicks(6101),
-                            UserName = "user"
+                            Id = new Guid("83f7c844-8ef4-4003-bbfc-561b89ecdc82"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1197),
+                            Email = "admin@example.com",
+                            PasswordHash = "Es/BQ4SBRiRgvdiIK6u8hPn/gYtSRrmW5uG7pykWPFU=",
+                            PasswordSalt = "cHmG0ecSaCP2zkWsEb+bkg==",
+                            Phone = "1111111111",
+                            RoleId = new Guid("215c6bbf-bdf0-400d-96c3-6aad720bc906"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1200),
+                            UserName = "admin"
+                        },
+                        new
+                        {
+                            Id = new Guid("2321cd66-ec34-4891-adf8-9494a6c75a0e"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1317),
+                            Email = "manager@example.com",
+                            PasswordHash = "ARHQMBtPvTbPbroA0WR1LKfE5hc553SMLbBqA1TVGMs=",
+                            PasswordSalt = "vnp6kJhAlJD5CATHgxpWVQ==",
+                            Phone = "2222222222",
+                            RoleId = new Guid("9cf2f0f7-caf8-4483-b3b6-0d8f5fdd9a65"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1317),
+                            UserName = "staffmanager"
+                        },
+                        new
+                        {
+                            Id = new Guid("dbca29e1-7f25-4529-99cc-d2cea53a516b"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1320),
+                            Email = "staff@example.com",
+                            PasswordHash = "81p9dir0zB1b2kwOKitS0U8IXxqCqugg7NEkoIJJd+E=",
+                            PasswordSalt = "UaydkzO3be7DGZ7pWt0gDA==",
+                            Phone = "3333333333",
+                            RoleId = new Guid("77a2089b-4eaa-499d-861e-4f05b6179669"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1321),
+                            UserName = "staff"
+                        },
+                        new
+                        {
+                            Id = new Guid("fceed40c-56f9-4827-9740-53805f920e26"),
+                            CreatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1324),
+                            Email = "customer@example.com",
+                            PasswordHash = "PyFPxFcDjERhjtUAalz2BjK4uTdgGb/Dspc6HKHDTf0=",
+                            PasswordSalt = "lI02mur/w8o1Kgp2gmqV2A==",
+                            Phone = "4444444444",
+                            RoleId = new Guid("be1e013d-af34-40de-aff9-13b9df5bb8b3"),
+                            UpdatedAt = new DateTime(2025, 5, 1, 8, 34, 35, 232, DateTimeKind.Utc).AddTicks(1328),
+                            UserName = "customer"
                         });
+                });
+
+            modelBuilder.Entity("Domain.Entities.MovieActor", b =>
+                {
+                    b.HasOne("Domain.Entities.Actor", "Actor")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Movie", "Movie")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("Domain.Entities.RefreshToken", b =>
@@ -539,6 +881,11 @@ namespace Infrastructure.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Actor", b =>
+                {
+                    b.Navigation("MovieActors");
+                });
+
             modelBuilder.Entity("Domain.Entities.City", b =>
                 {
                     b.Navigation("Theaters");
@@ -546,6 +893,8 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Movie", b =>
                 {
+                    b.Navigation("MovieActors");
+
                     b.Navigation("Showtimes");
                 });
 

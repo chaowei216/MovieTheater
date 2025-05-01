@@ -1,6 +1,5 @@
 ﻿using Application.Commands.Auth;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers.Auth
@@ -16,6 +15,11 @@ namespace Presentation.Controllers.Auth
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Login endpoint for user authentication.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
             {
@@ -26,7 +30,11 @@ namespace Presentation.Controllers.Auth
             }
             return Unauthorized(response);
         }
-
+        /// <summary>
+        /// Register endpoint for customer registration.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterCommand command)
         {
@@ -37,7 +45,11 @@ namespace Presentation.Controllers.Auth
             }
             return BadRequest(response);
         }
-
+        /// <summary>
+        /// Refresh token endpoint for generating a new access token.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenCommand command)
         {
