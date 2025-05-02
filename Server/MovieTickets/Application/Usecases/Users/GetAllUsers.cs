@@ -14,10 +14,10 @@ namespace Application.Usecases.Users
 {
     public class GetAllUsers
     {
-        private readonly IMovieRepository<User> _userRepository;
+        private readonly IGenericRepository<User> _userRepository;
         private readonly IMapper _mapper;
 
-        public GetAllUsers(IMovieRepository<User> userRepository, IMapper mapper)
+        public GetAllUsers(IGenericRepository<User> userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _mapper = mapper;

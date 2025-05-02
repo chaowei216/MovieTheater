@@ -35,6 +35,7 @@ namespace Domain.Entities
 
         public Role? Role { get; set; }
 
+        public bool IsBlocked { get; set; } = false;
         public ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 
 

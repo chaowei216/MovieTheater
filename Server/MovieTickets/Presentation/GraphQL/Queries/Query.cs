@@ -1,21 +1,11 @@
-﻿using Application.Queries.City;
+﻿using Application.Queries.Cities;
 using Application.Queries.Movies;
 using Application.Queries.Theaters;
 using Application.Usecases.Cities;
 using Application.Usecases.Movies;
 using Application.Usecases.Theaters;
-using Application.Usecases.Users;
-using Common.DTOs.City;
-using Common.DTOs.Movie;
 using Common.DTOs.Theater;
-using Common.DTOs.User;
-using Common.Models;
 using Domain.Entities;
-using HotChocolate;
-using HotChocolate.Authorization;
-using HotChocolate.Data;
-using MediatR;
-using System.Threading.Tasks;
 
 namespace MovieTickets.Presentation.GraphQL.Queries
 {
@@ -24,7 +14,7 @@ namespace MovieTickets.Presentation.GraphQL.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public async Task<IEnumerable<CityDTO>> GetCities([Service] GetAllCities getAllCitiesUseCase)
+        public async Task<IEnumerable<City>> GetCities([Service] GetAllCities getAllCitiesUseCase)
         {
             var result = await getAllCitiesUseCase.Handle(new GetAllCitiesQuery(), CancellationToken.None);
             if (!result.Success)
@@ -50,7 +40,7 @@ namespace MovieTickets.Presentation.GraphQL.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public async Task<IEnumerable<TheaterDTO>> GetTheater([Service] GetAllTheaters getAllTheaters )
+        public async Task<IEnumerable<Theater>> GetTheater([Service] GetAllTheaters getAllTheaters )
         {
             var theaters = await getAllTheaters.Handle(new GetAllTheatersQuery(), CancellationToken.None);
             if (!theaters.Success)

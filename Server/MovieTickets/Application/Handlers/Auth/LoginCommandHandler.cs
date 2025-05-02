@@ -49,7 +49,7 @@ namespace Application.Handlers.Auth
 
         
                 _logger.LogDebug("Attempting to retrieve user with username: {Username}", request.Email);
-                var user = await _userRepository.GetByUsernameAsync(request.Email);
+                var user = await _userRepository.GetByEmailAsync(request.Email);
                 if (user == null)
                 {
                     _logger.LogWarning("Login failed: User {Username} not found", request.Email);

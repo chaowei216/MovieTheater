@@ -27,10 +27,10 @@ namespace Infrastructure.Services
             var key = Encoding.UTF8.GetBytes(_jwtSettings.Key);
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Role, user.Role?.RoleName ?? "User"),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email)
+                new Claim("UserName", user.UserName),
+                new Claim("Role", user.Role?.RoleName ?? "User"),
+                new Claim("UserId", user.Id.ToString()),
+                new Claim("Email", user.Email)
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor

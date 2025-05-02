@@ -14,10 +14,10 @@ namespace Application.Usecases.Movies
 {
     public class GetMoviesByTitle
     {
-        private readonly IMovieRepository<Movie> _movieRepository;
+        private readonly IGenericRepository<Movie> _movieRepository;
         private readonly IMapper _mapper;
 
-        public GetMoviesByTitle(IMovieRepository<Movie> movieRepository, IMapper mapper)
+        public GetMoviesByTitle(IGenericRepository<Movie> movieRepository, IMapper mapper)
         {
             _movieRepository = movieRepository;
             _mapper = mapper;

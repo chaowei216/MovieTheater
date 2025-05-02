@@ -1,16 +1,11 @@
+using System.Reflection;
 using Application;
-using Application.Mappings;
-using AutoMapper;
 using Infrastructure;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MovieTickets.Presentation.GraphQL.Queries;
 using Presentation.GraphQL.Mutations;
 using Presentation.Middlewares;
 using Serilog;
-using System.Reflection;
-using System.Text;
 
 namespace Presentation
 {
@@ -68,26 +63,53 @@ namespace Presentation
                         Title = "Movie API",
                         Version = "v1"
                     });
-                
+
                     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                     var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
                     options.IncludeXmlComments(xmlPath);
+
+
+                    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                    {
+                        Name = "Authorization",
+                        Type = SecuritySchemeType.Http,
+                        Scheme = "Bearer",
+                        BearerFormat = "JWT",
+                        In = ParameterLocation.Header,
+                        Description = "Input Token. Example: Bearer {token}"
+                    });
+
+
+                    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
                 });
 
 
 
                 builder.Services.Configure<HostOptions>(options =>
-                {
-                    options.BackgroundServiceExceptionBehavior = BackgroundServiceExceptionBehavior.Ignore;
-                });
-              
+            {
+                options.BackgroundServiceExceptionBehavior = BackgroundServiceExceptionBehavior.Ignore;
+            });
+
                 var app = builder.Build();
 
                 //if (app.Environment.IsDevelopment())
                 //{
-                    app.UseSwagger();
-                    app.UseSwaggerUI();
-                
+                app.UseSwagger();
+                app.UseSwaggerUI();
+
 
                 app.UseMiddleware<ErrorHandlingMiddleware>();
                 app.UseSerilogRequestLogging();
@@ -97,13 +119,13 @@ namespace Presentation
                 app.UseAuthorization();
                 app.MapGraphQL();
                 app.MapControllers();
-                app.Run(); 
+                app.Run();
             }
             catch (Exception ex) when (ex is not HostAbortedException && ex.Source != "Microsoft.EntityFrameworkCore.Design")
             {
                 Log.Fatal(ex, "Web host terminated unexpectedly");
                 Console.WriteLine("ERROR: " + ex.Message);
-                Console.WriteLine(ex.ToString()); 
+                Console.WriteLine(ex.ToString());
             }
             finally
             {

@@ -1,39 +1,32 @@
 ﻿
 using Application.Interfaces.IRepositories;
-using Application.Queries.City;
+using Application.Queries.Cities;
 using AutoMapper;
-using Common.DTOs.City;
 using Common.Models;
 using Domain.Entities;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Usecases.Cities
 {
 
     public class GetAllCities
     {
-        private readonly IMovieRepository<City> _cityRepository;
+        private readonly IGenericRepository<City> _cityRepository;
         private readonly IMapper _mapper;
 
-        public GetAllCities(IMovieRepository<City> cityRepository, IMapper mapper)
+        public GetAllCities(IGenericRepository<City> cityRepository, IMapper mapper)
         {
             _cityRepository = cityRepository ?? throw new ArgumentNullException(nameof(_cityRepository));
             _mapper = mapper;
         }
 
-        public async Task<ResponseModel<IEnumerable<CityDTO>>> Handle(GetAllCitiesQuery request, CancellationToken cancellationToken)
+        public async Task<ResponseModel<IEnumerable<City>>> Handle(GetAllCitiesQuery request, CancellationToken cancellationToken)
         {
             var cities = await _cityRepository.GetAllAsync();
-            return new ResponseModel<IEnumerable<CityDTO>>
+            return new ResponseModel<IEnumerable<City>>
             {
                 Success = true,
                 Message = "Cities retrieved successfully",
-                Data = _mapper.Map<IEnumerable<CityDTO>>(cities)
+                Data = _mapper.Map<IEnumerable<City>>(cities)
             };
         }
     }

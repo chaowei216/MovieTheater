@@ -4,6 +4,40 @@
         <name>Presentation</name>
     </assembly>
     <members>
+        <member name="M:Presentation.Controllers.Admin.AdminController.CreateUser(Application.Commands.Admin.CreateUserCommand)">
+            <summary>
+            Create a new Staff
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Presentation.Controllers.Admin.AdminController.UpdateUser(Application.Commands.Admin.UpdateUserCommand)">
+            <summary>
+            Update a user
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Presentation.Controllers.Admin.AdminController.BlockUser(Application.Commands.Admin.BlockUserCommand)">
+            <summary>
+            Block a user
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Presentation.Controllers.Admin.AdminController.GetUserById(System.Guid)">
+            <summary>
+            Get user by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Presentation.Controllers.Admin.AdminController.GetAllUsers">
+            <summary>
+            Get all users
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Presentation.Controllers.Auth.AuthController.Login(Application.Commands.Auth.LoginCommand)">
             <summary>
             Login endpoint for user authentication.

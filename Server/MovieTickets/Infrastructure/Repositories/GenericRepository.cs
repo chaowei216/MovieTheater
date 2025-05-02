@@ -1,20 +1,14 @@
-﻿using Application.Interfaces.IRepositories;
+﻿using System.Linq.Expressions;
+using Application.Interfaces.IRepositories;
 using Domain.Entities;
 using Infrastructure.Data;
-
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
 
 
-    public class GenericRepository<T> : IMovieRepository<T> where T : BaseEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         private readonly MovieDbContext _context;
         private readonly DbSet<T> _dbSet;
@@ -43,9 +37,8 @@ namespace Infrastructure.Repositories
         public async Task UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
-            await Task.CompletedTask;
+            await _context.SaveChangesAsync();
         }
-
         public async Task DeleteAsync(Guid id)
         {
             var entity = await GetByIdAsync(id);

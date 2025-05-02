@@ -5,15 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
         private readonly MovieDbContext _context;
 
-        public UserRepository(MovieDbContext context)
+        public UserRepository(MovieDbContext context) : base(context)
         {
             _context = context;
         }
-
         public async Task<User?> GetByUsernameAsync(string username)
         {
             return await _context.Users.Include(u => u.Role)

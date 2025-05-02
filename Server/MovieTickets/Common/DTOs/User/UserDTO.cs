@@ -12,6 +12,9 @@ namespace Common.DTOs.User
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string RoleName { get; set; }
+        public bool IsBlocked { get; set; }
+
 
     }
 }
