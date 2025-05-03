@@ -563,3 +563,4 @@ D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Debug\net8
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Debug\net8.0\ref\Presentation.dll
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\bin\Debug\net8.0\Presentation.xml
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Debug\net8.0\Presentation.xml
+D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\bin\Debug\net8.0\CloudinaryDotNet.dll

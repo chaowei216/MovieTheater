@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class MovieRepository : IMovieRepository
+    public class MovieRepository : GenericRepository<Movie>, IMovieRepository
     {
+
+
         private readonly MovieDbContext _context;
 
-        public MovieRepository(MovieDbContext context)
+        public MovieRepository(MovieDbContext context) : base(context)
         {
             _context = context;
         }

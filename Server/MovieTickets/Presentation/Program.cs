@@ -1,6 +1,8 @@
 using System.Reflection;
 using Application;
+using CloudinaryDotNet;
 using Infrastructure;
+using Infrastructure.Configurations;
 using Microsoft.OpenApi.Models;
 using MovieTickets.Presentation.GraphQL.Queries;
 using Presentation.GraphQL.Mutations;
@@ -56,6 +58,21 @@ namespace Presentation
 
                 builder.Services.AddHttpContextAccessor();
                 builder.Services.AddEndpointsApiExplorer();
+                builder.Services.Configure<CloudinarySettings>(
+                builder.Configuration.GetSection("Cloudinary"));
+
+
+                builder.Services.AddSingleton<Cloudinary>(provider =>
+                {
+                    var config = provider.GetRequiredService<IConfiguration>()
+                        .GetSection("Cloudinary").Get<CloudinarySettings>();
+                    if (string.IsNullOrEmpty(config.CloudName) || string.IsNullOrEmpty(config.ApiKey) || string.IsNullOrEmpty(config.ApiSecret))
+                    {
+                        throw new InvalidOperationException("Cloudinary configuration is missing or invalid.");
+                    }
+                    var account = new Account(config.CloudName, config.ApiKey, config.ApiSecret);
+                    return new Cloudinary(account);
+                });
                 builder.Services.AddSwaggerGen(options =>
                 {
                     options.SwaggerDoc("v1", new OpenApiInfo

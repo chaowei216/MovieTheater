@@ -24,11 +24,11 @@ namespace Application
             services.AddScoped<GetAllShowtimes>();
            
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application).Assembly));
-            services.AddValidatorsFromAssembly(typeof(Application).Assembly);         
+            services.AddValidatorsFromAssembly(typeof(Application).Assembly);
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 
-            return services; 
+            return services;
         }
     }
 }

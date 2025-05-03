@@ -45,6 +45,32 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Presentation.Controllers.Admin.AdminController.CreateMovie(Common.DTOs.Movie.CreateMovieRequest)">
+            <summary>
+            Create a new movie
+            </summary>
+            <param name="movieName"></param>
+            <param name="description"></param>
+            <param name="isPublic"></param>
+            <param name="duration"></param>
+            <param name="releaseDate"></param>
+            <param name="endDate"></param>
+            <param name="movieImageFile"></param>
+            <param name="actorNames"></param>
+            <param name="actorDescriptions"></param>
+            <param name="sexes"></param>
+            <param name="datesOfBirth"></param>
+            <param name="characterNames"></param>
+            <param name="actorImageFiles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Presentation.Controllers.Admin.AdminController.GetMovieById(System.Guid)">
+            <summary>
+            Get Movie by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:Presentation.Controllers.Auth.AuthController.Login(Application.Commands.Auth.LoginCommand)">
             <summary>
             Login endpoint for user authentication.

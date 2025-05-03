@@ -68,6 +68,8 @@ namespace Infrastructure.Migrations
                     Duration = table.Column<int>(type: "int", nullable: false),
                     ReleaseDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    MovieImage = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
@@ -330,10 +332,10 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "ActorDescription", "ActorImage", "ActorName", "CreatedAt", "DateOfBirth", "Sex", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("e1a6b116-4c62-4e52-9604-1ac13e1e6787"), "Known for action and sci-fi roles.", "keanu_reeves.jpg", "Keanu Reeves", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5955), new DateTime(1964, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Male", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5956) },
-                    { new Guid("e8ef376c-49ad-4e9e-bf74-0bb29776c349"), "Known for strong action roles.", "carrie_anne_moss.jpg", "Carrie-Anne Moss", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5962), new DateTime(1967, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Female", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5962) },
-                    { new Guid("fd34be32-e1be-4245-aed9-846ae6e4c915"), "Acclaimed for emotional performances.", "kate_winslet.jpg", "Kate Winslet", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5960), new DateTime(1975, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "Female", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5960) },
-                    { new Guid("ffc26079-0671-4d1b-8ef6-dfa1a6e2e0c6"), "Versatile actor in drama and thriller.", "leonardo_dicaprio.jpg", "Leonardo DiCaprio", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5958), new DateTime(1974, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Male", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5958) }
+                    { new Guid("5c56da82-871d-4993-b918-30238918232c"), "Versatile actor in drama and thriller.", "leonardo_dicaprio.jpg", "Leonardo DiCaprio", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8393), new DateTime(1974, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Male", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8393) },
+                    { new Guid("71e9e85b-e367-4038-84d6-91cfa8997488"), "Known for strong action roles.", "carrie_anne_moss.jpg", "Carrie-Anne Moss", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8397), new DateTime(1967, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Female", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8397) },
+                    { new Guid("f58bd65c-3508-46c3-9eb8-d55ac431db1e"), "Acclaimed for emotional performances.", "kate_winslet.jpg", "Kate Winslet", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8395), new DateTime(1975, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "Female", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8395) },
+                    { new Guid("fd2fd92d-f031-4413-9185-70b639486717"), "Known for action and sci-fi roles.", "keanu_reeves.jpg", "Keanu Reeves", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8391), new DateTime(1964, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Male", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8391) }
                 });
 
             migrationBuilder.InsertData(
@@ -341,18 +343,18 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "CityName", "CreatedAt", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("bd194da6-7d52-4b75-b2e7-adcf17b26e44"), "Hồ Chí Minh", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5848), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5849) },
-                    { new Guid("f5e624c6-bb43-467d-b7b3-cf644f4761f0"), "Hà Nội", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5847), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5847) }
+                    { new Guid("50a7f8e6-5f75-4a46-8cbb-27c3d3860f7f"), "Hà Nội", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8277), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8278) },
+                    { new Guid("bc167d53-29dc-41ae-b8aa-b8c20c1d0ca7"), "Hồ Chí Minh", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8303), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8304) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Movies",
-                columns: new[] { "Id", "CreatedAt", "Description", "Duration", "EndDate", "IsPublic", "MovieName", "ReleaseDate", "UpdatedAt" },
+                columns: new[] { "Id", "CreatedAt", "Description", "Duration", "EndDate", "IsPublic", "MovieImage", "MovieName", "ReleaseDate", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("40e8b951-ee7b-4cf5-acdc-368987d7af47"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5922), "A hacker discovers a mysterious reality.", 136, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "The Matrix", new DateTime(1999, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5922) },
-                    { new Guid("90837c03-9cac-48fd-8cd9-cc58be9a773f"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5927), "A love story aboard a doomed ship.", 195, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "Titanic", new DateTime(1997, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5927) },
-                    { new Guid("b56f7815-3a0e-4c3a-8a01-cb3a83096b0b"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5925), "A thief enters dreams to steal secrets.", 148, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "Inception", new DateTime(2010, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5925) }
+                    { new Guid("6b216128-bfe7-4e66-987f-2106c724c60b"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8368), "A love story aboard a doomed ship.", 195, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, null, "Titanic", new DateTime(1997, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8368) },
+                    { new Guid("c05797db-c6c7-4501-b86b-3279a6101c8b"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8363), "A hacker discovers a mysterious reality.", 136, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, null, "The Matrix", new DateTime(1999, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8363) },
+                    { new Guid("d7dc21e5-f25c-4dfd-a681-ce576bd4cf0c"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8366), "A thief enters dreams to steal secrets.", 148, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, null, "Inception", new DateTime(2010, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8366) }
                 });
 
             migrationBuilder.InsertData(
@@ -360,10 +362,10 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedAt", "RoleName", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("0f7b52ba-1255-4a2a-bcbd-e9bc8bfc1515"), new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9342), "Customer", new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9342) },
-                    { new Guid("26a9bc0d-dc2b-4c2a-8c4e-5dd000aeab0b"), new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9339), "Staff Manager", new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9339) },
-                    { new Guid("817175b8-73a4-439d-be60-c66f403fbea0"), new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9333), "Admin", new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9335) },
-                    { new Guid("a035064c-6c42-4836-b0b3-6df0d783ae19"), new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9340), "Staff", new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9341) }
+                    { new Guid("56c6e118-fd38-4feb-be1e-167e2e483682"), new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9650), "Staff", new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9650) },
+                    { new Guid("5d6358d1-a354-4b82-991c-6c035995d376"), new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9648), "Staff Manager", new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9649) },
+                    { new Guid("77c08f1c-9206-42d4-ab5d-722c7942701d"), new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9652), "Customer", new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9652) },
+                    { new Guid("b5b7860b-c60b-40c9-83ad-634d83638cd7"), new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9638), "Admin", new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9639) }
                 });
 
             migrationBuilder.InsertData(
@@ -371,11 +373,11 @@ namespace Infrastructure.Migrations
                 columns: new[] { "ActorId", "MovieId", "CharacterName", "CreatedAt", "Id", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("e1a6b116-4c62-4e52-9604-1ac13e1e6787"), new Guid("40e8b951-ee7b-4cf5-acdc-368987d7af47"), "Neo", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5985), new Guid("c7c08bf1-a99a-4585-8472-531b44571f33"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5985) },
-                    { new Guid("e8ef376c-49ad-4e9e-bf74-0bb29776c349"), new Guid("40e8b951-ee7b-4cf5-acdc-368987d7af47"), "Trinity", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5987), new Guid("a639b8ef-960b-43a1-9d9b-b3754688f5ae"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5987) },
-                    { new Guid("fd34be32-e1be-4245-aed9-846ae6e4c915"), new Guid("90837c03-9cac-48fd-8cd9-cc58be9a773f"), "Rose DeWitt Bukater", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5994), new Guid("a9a7374c-4d51-4306-8d27-85d958b501bd"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5994) },
-                    { new Guid("ffc26079-0671-4d1b-8ef6-dfa1a6e2e0c6"), new Guid("90837c03-9cac-48fd-8cd9-cc58be9a773f"), "Jack Dawson", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5991), new Guid("c5af74dd-10af-4916-8e4f-9c7119dff75c"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5991) },
-                    { new Guid("ffc26079-0671-4d1b-8ef6-dfa1a6e2e0c6"), new Guid("b56f7815-3a0e-4c3a-8a01-cb3a83096b0b"), "Dom Cobb", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5989), new Guid("79d89eab-149b-4de3-a017-25d844cb00f5"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5989) }
+                    { new Guid("5c56da82-871d-4993-b918-30238918232c"), new Guid("6b216128-bfe7-4e66-987f-2106c724c60b"), "Jack Dawson", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8422), new Guid("780bd05d-244f-4343-a7a7-4b768064a626"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8422) },
+                    { new Guid("f58bd65c-3508-46c3-9eb8-d55ac431db1e"), new Guid("6b216128-bfe7-4e66-987f-2106c724c60b"), "Rose DeWitt Bukater", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8423), new Guid("41048d7b-7bc4-4c28-b0cf-3bc04b64e5b3"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8424) },
+                    { new Guid("71e9e85b-e367-4038-84d6-91cfa8997488"), new Guid("c05797db-c6c7-4501-b86b-3279a6101c8b"), "Trinity", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8418), new Guid("393d176e-4f52-4d05-a1f8-b5b42d919df8"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8418) },
+                    { new Guid("fd2fd92d-f031-4413-9185-70b639486717"), new Guid("c05797db-c6c7-4501-b86b-3279a6101c8b"), "Neo", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8414), new Guid("1f977863-a473-430b-a5d0-7be79e1faf29"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8414) },
+                    { new Guid("5c56da82-871d-4993-b918-30238918232c"), new Guid("d7dc21e5-f25c-4dfd-a681-ce576bd4cf0c"), "Dom Cobb", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8420), new Guid("94e4c52b-7d44-4fa9-af8e-b5d82efbeb5e"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8420) }
                 });
 
             migrationBuilder.InsertData(
@@ -383,10 +385,10 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "CityId", "CreatedAt", "Location", "TheaterName", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("2cc7df46-ddaf-42d1-a2ca-de72d2630650"), new Guid("bd194da6-7d52-4b75-b2e7-adcf17b26e44"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5885), "Số 20, Phố Lý Tự Trọng, Hồ Chí Minh", "BHD Star Cineplex", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5886) },
-                    { new Guid("3ffd2193-c4c4-40db-8195-1e91b8a90b7a"), new Guid("bd194da6-7d52-4b75-b2e7-adcf17b26e44"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5883), "Số 10, Phố Nguyễn Huệ, Hồ Chí Minh", "CGV Hồ Chí Minh", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5883) },
-                    { new Guid("7d0e4f1c-a23f-40ac-a7e4-b48e7fdb05ba"), new Guid("f5e624c6-bb43-467d-b7b3-cf644f4761f0"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5881), "Số 2, Phố Trần Duy Hưng, Hà Nội", "Lotte Cinema Hà Nội", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5881) },
-                    { new Guid("efe6fdcb-285c-4e54-b3dc-15f13ec3a393"), new Guid("f5e624c6-bb43-467d-b7b3-cf644f4761f0"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5878), "Số 1, Phố Ngô Quyền, Hà Nội", "CGV Hà Nội", new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5878) }
+                    { new Guid("02b7a969-43a2-4625-965f-f74da2645878"), new Guid("bc167d53-29dc-41ae-b8aa-b8c20c1d0ca7"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8332), "Số 10, Phố Nguyễn Huệ, Hồ Chí Minh", "CGV Hồ Chí Minh", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8332) },
+                    { new Guid("23b84abc-99f6-48c4-b77b-728b5b7cac28"), new Guid("50a7f8e6-5f75-4a46-8cbb-27c3d3860f7f"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8327), "Số 1, Phố Ngô Quyền, Hà Nội", "CGV Hà Nội", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8328) },
+                    { new Guid("a69dc5c0-a91a-41c4-8366-e2a91669f2df"), new Guid("50a7f8e6-5f75-4a46-8cbb-27c3d3860f7f"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8330), "Số 2, Phố Trần Duy Hưng, Hà Nội", "Lotte Cinema Hà Nội", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8330) },
+                    { new Guid("f75aa1fe-c36e-42c5-b99c-af89e5728e24"), new Guid("bc167d53-29dc-41ae-b8aa-b8c20c1d0ca7"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8334), "Số 20, Phố Lý Tự Trọng, Hồ Chí Minh", "BHD Star Cineplex", new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8334) }
                 });
 
             migrationBuilder.InsertData(
@@ -394,10 +396,10 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedAt", "Email", "IsBlocked", "PasswordHash", "PasswordSalt", "Phone", "RoleId", "UpdatedAt", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("9dfe6fd3-fcb4-4403-a94d-07161fe9721d"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5810), "staff@example.com", false, "YRvSkuRIf7lSOvUnK2plb+PI/P1GYlMMxv3wvDdNvWE=", "iIRfptVj1+HGdQVQhlZ22Q==", "3333333333", new Guid("a035064c-6c42-4836-b0b3-6df0d783ae19"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5810), "staff" },
-                    { new Guid("beac5b1a-415c-4ee2-ab2b-b0ebfc761742"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5803), "admin@example.com", false, "dGKFpHEqxwmRmxf1eiyukmoVAmkQ2yv0iqYtTy8Wm98=", "xgTwBzajWrPs7d/yWyVAVQ==", "1111111111", new Guid("817175b8-73a4-439d-be60-c66f403fbea0"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5804), "admin" },
-                    { new Guid("c8155e42-0761-4ca3-9d79-4fadd52fb3a2"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5807), "manager@example.com", false, "dq1tU9BM0nTL+i8tyx48Ek2sDdUSBW0m6VbhU8f+iWY=", "rKeq+ZfhoOf1NLmQLzaQ2w==", "2222222222", new Guid("26a9bc0d-dc2b-4c2a-8c4e-5dd000aeab0b"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5808), "staffmanager" },
-                    { new Guid("e915fe56-c8eb-4e94-a61b-abd7080b4a54"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5813), "customer@example.com", false, "QsigimfYAOPyn66FbKTvX+NMZkclQLoaGzGJ/S3L7Xo=", "pnaoPao0xacbWax0WJd54Q==", "4444444444", new Guid("0f7b52ba-1255-4a2a-bcbd-e9bc8bfc1515"), new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5813), "customer" }
+                    { new Guid("02530f11-bfbb-411d-89ec-372a4a96810b"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8242), "manager@example.com", false, "S0xyLl7H2ph53W2CrDc/4Uu4IrlcltlVldY4l7TwJZw=", "psJCzS+yvzIRRVd1kCJJrw==", "2222222222", new Guid("5d6358d1-a354-4b82-991c-6c035995d376"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8242), "staffmanager" },
+                    { new Guid("73ff0a84-b8dd-4ea8-9637-20a2f89e4805"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8251), "customer@example.com", false, "86UgGt0G6cIcC5ERWWDBLe3vEZdetp6HePHEiKzn6yM=", "vqnU5mqV9vUrQxMG338n/A==", "4444444444", new Guid("77c08f1c-9206-42d4-ab5d-722c7942701d"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8252), "customer" },
+                    { new Guid("80f33926-0701-46c4-92c9-73e8989ae924"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8238), "admin@example.com", false, "8EleeVK4645feOy6QMfohV5xfgOyqt0Oc5kHGbJh4hM=", "C16cVVOFWAJ6vtAQ0fHh0g==", "1111111111", new Guid("b5b7860b-c60b-40c9-83ad-634d83638cd7"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8239), "admin" },
+                    { new Guid("ee093080-7da4-4c02-8f60-5f0761ae89a2"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8248), "staff@example.com", false, "hINikXQdpCF3wQE8rO7vMh0X4+n6Bjl7Pf25d+T0xMg=", "ZhyCaM4PJUw+3EcG2dXqlw==", "3333333333", new Guid("56c6e118-fd38-4feb-be1e-167e2e483682"), new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8249), "staff" }
                 });
 
             migrationBuilder.CreateIndex(

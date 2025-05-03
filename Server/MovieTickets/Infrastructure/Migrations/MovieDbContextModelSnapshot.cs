@@ -63,47 +63,47 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e1a6b116-4c62-4e52-9604-1ac13e1e6787"),
+                            Id = new Guid("fd2fd92d-f031-4413-9185-70b639486717"),
                             ActorDescription = "Known for action and sci-fi roles.",
                             ActorImage = "keanu_reeves.jpg",
                             ActorName = "Keanu Reeves",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5955),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8391),
                             DateOfBirth = new DateTime(1964, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Sex = "Male",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5956)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8391)
                         },
                         new
                         {
-                            Id = new Guid("ffc26079-0671-4d1b-8ef6-dfa1a6e2e0c6"),
+                            Id = new Guid("5c56da82-871d-4993-b918-30238918232c"),
                             ActorDescription = "Versatile actor in drama and thriller.",
                             ActorImage = "leonardo_dicaprio.jpg",
                             ActorName = "Leonardo DiCaprio",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5958),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8393),
                             DateOfBirth = new DateTime(1974, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Sex = "Male",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5958)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8393)
                         },
                         new
                         {
-                            Id = new Guid("fd34be32-e1be-4245-aed9-846ae6e4c915"),
+                            Id = new Guid("f58bd65c-3508-46c3-9eb8-d55ac431db1e"),
                             ActorDescription = "Acclaimed for emotional performances.",
                             ActorImage = "kate_winslet.jpg",
                             ActorName = "Kate Winslet",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5960),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8395),
                             DateOfBirth = new DateTime(1975, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Sex = "Female",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5960)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8395)
                         },
                         new
                         {
-                            Id = new Guid("e8ef376c-49ad-4e9e-bf74-0bb29776c349"),
+                            Id = new Guid("71e9e85b-e367-4038-84d6-91cfa8997488"),
                             ActorDescription = "Known for strong action roles.",
                             ActorImage = "carrie_anne_moss.jpg",
                             ActorName = "Carrie-Anne Moss",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5962),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8397),
                             DateOfBirth = new DateTime(1967, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Sex = "Female",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5962)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8397)
                         });
                 });
 
@@ -134,17 +134,17 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f5e624c6-bb43-467d-b7b3-cf644f4761f0"),
+                            Id = new Guid("50a7f8e6-5f75-4a46-8cbb-27c3d3860f7f"),
                             CityName = "Hà Nội",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5847),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5847)
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8277),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8278)
                         },
                         new
                         {
-                            Id = new Guid("bd194da6-7d52-4b75-b2e7-adcf17b26e44"),
+                            Id = new Guid("bc167d53-29dc-41ae-b8aa-b8c20c1d0ca7"),
                             CityName = "Hồ Chí Minh",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5848),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5849)
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8303),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8304)
                         });
                 });
 
@@ -172,6 +172,9 @@ namespace Infrastructure.Migrations
                     b.Property<bool>("IsPublic")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("MovieImage")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("MovieName")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -190,39 +193,39 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("40e8b951-ee7b-4cf5-acdc-368987d7af47"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5922),
+                            Id = new Guid("c05797db-c6c7-4501-b86b-3279a6101c8b"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8363),
                             Description = "A hacker discovers a mysterious reality.",
                             Duration = 136,
                             EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsPublic = true,
                             MovieName = "The Matrix",
                             ReleaseDate = new DateTime(1999, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5922)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8363)
                         },
                         new
                         {
-                            Id = new Guid("b56f7815-3a0e-4c3a-8a01-cb3a83096b0b"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5925),
+                            Id = new Guid("d7dc21e5-f25c-4dfd-a681-ce576bd4cf0c"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8366),
                             Description = "A thief enters dreams to steal secrets.",
                             Duration = 148,
                             EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsPublic = true,
                             MovieName = "Inception",
                             ReleaseDate = new DateTime(2010, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5925)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8366)
                         },
                         new
                         {
-                            Id = new Guid("90837c03-9cac-48fd-8cd9-cc58be9a773f"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5927),
+                            Id = new Guid("6b216128-bfe7-4e66-987f-2106c724c60b"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8368),
                             Description = "A love story aboard a doomed ship.",
                             Duration = 195,
                             EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsPublic = true,
                             MovieName = "Titanic",
                             ReleaseDate = new DateTime(1997, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5927)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8368)
                         });
                 });
 
@@ -267,48 +270,48 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            MovieId = new Guid("40e8b951-ee7b-4cf5-acdc-368987d7af47"),
-                            ActorId = new Guid("e1a6b116-4c62-4e52-9604-1ac13e1e6787"),
+                            MovieId = new Guid("c05797db-c6c7-4501-b86b-3279a6101c8b"),
+                            ActorId = new Guid("fd2fd92d-f031-4413-9185-70b639486717"),
                             CharacterName = "Neo",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5985),
-                            Id = new Guid("c7c08bf1-a99a-4585-8472-531b44571f33"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5985)
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8414),
+                            Id = new Guid("1f977863-a473-430b-a5d0-7be79e1faf29"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8414)
                         },
                         new
                         {
-                            MovieId = new Guid("40e8b951-ee7b-4cf5-acdc-368987d7af47"),
-                            ActorId = new Guid("e8ef376c-49ad-4e9e-bf74-0bb29776c349"),
+                            MovieId = new Guid("c05797db-c6c7-4501-b86b-3279a6101c8b"),
+                            ActorId = new Guid("71e9e85b-e367-4038-84d6-91cfa8997488"),
                             CharacterName = "Trinity",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5987),
-                            Id = new Guid("a639b8ef-960b-43a1-9d9b-b3754688f5ae"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5987)
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8418),
+                            Id = new Guid("393d176e-4f52-4d05-a1f8-b5b42d919df8"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8418)
                         },
                         new
                         {
-                            MovieId = new Guid("b56f7815-3a0e-4c3a-8a01-cb3a83096b0b"),
-                            ActorId = new Guid("ffc26079-0671-4d1b-8ef6-dfa1a6e2e0c6"),
+                            MovieId = new Guid("d7dc21e5-f25c-4dfd-a681-ce576bd4cf0c"),
+                            ActorId = new Guid("5c56da82-871d-4993-b918-30238918232c"),
                             CharacterName = "Dom Cobb",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5989),
-                            Id = new Guid("79d89eab-149b-4de3-a017-25d844cb00f5"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5989)
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8420),
+                            Id = new Guid("94e4c52b-7d44-4fa9-af8e-b5d82efbeb5e"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8420)
                         },
                         new
                         {
-                            MovieId = new Guid("90837c03-9cac-48fd-8cd9-cc58be9a773f"),
-                            ActorId = new Guid("ffc26079-0671-4d1b-8ef6-dfa1a6e2e0c6"),
+                            MovieId = new Guid("6b216128-bfe7-4e66-987f-2106c724c60b"),
+                            ActorId = new Guid("5c56da82-871d-4993-b918-30238918232c"),
                             CharacterName = "Jack Dawson",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5991),
-                            Id = new Guid("c5af74dd-10af-4916-8e4f-9c7119dff75c"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5991)
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8422),
+                            Id = new Guid("780bd05d-244f-4343-a7a7-4b768064a626"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8422)
                         },
                         new
                         {
-                            MovieId = new Guid("90837c03-9cac-48fd-8cd9-cc58be9a773f"),
-                            ActorId = new Guid("fd34be32-e1be-4245-aed9-846ae6e4c915"),
+                            MovieId = new Guid("6b216128-bfe7-4e66-987f-2106c724c60b"),
+                            ActorId = new Guid("f58bd65c-3508-46c3-9eb8-d55ac431db1e"),
                             CharacterName = "Rose DeWitt Bukater",
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5994),
-                            Id = new Guid("a9a7374c-4d51-4306-8d27-85d958b501bd"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5994)
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8423),
+                            Id = new Guid("41048d7b-7bc4-4c28-b0cf-3bc04b64e5b3"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8424)
                         });
                 });
 
@@ -379,31 +382,31 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("817175b8-73a4-439d-be60-c66f403fbea0"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9333),
+                            Id = new Guid("b5b7860b-c60b-40c9-83ad-634d83638cd7"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9638),
                             RoleName = "Admin",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9335)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9639)
                         },
                         new
                         {
-                            Id = new Guid("26a9bc0d-dc2b-4c2a-8c4e-5dd000aeab0b"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9339),
+                            Id = new Guid("5d6358d1-a354-4b82-991c-6c035995d376"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9648),
                             RoleName = "Staff Manager",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9339)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9649)
                         },
                         new
                         {
-                            Id = new Guid("a035064c-6c42-4836-b0b3-6df0d783ae19"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9340),
+                            Id = new Guid("56c6e118-fd38-4feb-be1e-167e2e483682"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9650),
                             RoleName = "Staff",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9341)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9650)
                         },
                         new
                         {
-                            Id = new Guid("0f7b52ba-1255-4a2a-bcbd-e9bc8bfc1515"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9342),
+                            Id = new Guid("77c08f1c-9206-42d4-ab5d-722c7942701d"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9652),
                             RoleName = "Customer",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 277, DateTimeKind.Utc).AddTicks(9342)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 848, DateTimeKind.Utc).AddTicks(9652)
                         });
                 });
 
@@ -525,39 +528,39 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("efe6fdcb-285c-4e54-b3dc-15f13ec3a393"),
-                            CityId = new Guid("f5e624c6-bb43-467d-b7b3-cf644f4761f0"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5878),
+                            Id = new Guid("23b84abc-99f6-48c4-b77b-728b5b7cac28"),
+                            CityId = new Guid("50a7f8e6-5f75-4a46-8cbb-27c3d3860f7f"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8327),
                             Location = "Số 1, Phố Ngô Quyền, Hà Nội",
                             TheaterName = "CGV Hà Nội",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5878)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8328)
                         },
                         new
                         {
-                            Id = new Guid("7d0e4f1c-a23f-40ac-a7e4-b48e7fdb05ba"),
-                            CityId = new Guid("f5e624c6-bb43-467d-b7b3-cf644f4761f0"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5881),
+                            Id = new Guid("a69dc5c0-a91a-41c4-8366-e2a91669f2df"),
+                            CityId = new Guid("50a7f8e6-5f75-4a46-8cbb-27c3d3860f7f"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8330),
                             Location = "Số 2, Phố Trần Duy Hưng, Hà Nội",
                             TheaterName = "Lotte Cinema Hà Nội",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5881)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8330)
                         },
                         new
                         {
-                            Id = new Guid("3ffd2193-c4c4-40db-8195-1e91b8a90b7a"),
-                            CityId = new Guid("bd194da6-7d52-4b75-b2e7-adcf17b26e44"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5883),
+                            Id = new Guid("02b7a969-43a2-4625-965f-f74da2645878"),
+                            CityId = new Guid("bc167d53-29dc-41ae-b8aa-b8c20c1d0ca7"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8332),
                             Location = "Số 10, Phố Nguyễn Huệ, Hồ Chí Minh",
                             TheaterName = "CGV Hồ Chí Minh",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5883)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8332)
                         },
                         new
                         {
-                            Id = new Guid("2cc7df46-ddaf-42d1-a2ca-de72d2630650"),
-                            CityId = new Guid("bd194da6-7d52-4b75-b2e7-adcf17b26e44"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5885),
+                            Id = new Guid("f75aa1fe-c36e-42c5-b99c-af89e5728e24"),
+                            CityId = new Guid("bc167d53-29dc-41ae-b8aa-b8c20c1d0ca7"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8334),
                             Location = "Số 20, Phố Lý Tự Trọng, Hồ Chí Minh",
                             TheaterName = "BHD Star Cineplex",
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5886)
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8334)
                         });
                 });
 
@@ -716,54 +719,54 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("beac5b1a-415c-4ee2-ab2b-b0ebfc761742"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5803),
+                            Id = new Guid("80f33926-0701-46c4-92c9-73e8989ae924"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8238),
                             Email = "admin@example.com",
                             IsBlocked = false,
-                            PasswordHash = "dGKFpHEqxwmRmxf1eiyukmoVAmkQ2yv0iqYtTy8Wm98=",
-                            PasswordSalt = "xgTwBzajWrPs7d/yWyVAVQ==",
+                            PasswordHash = "8EleeVK4645feOy6QMfohV5xfgOyqt0Oc5kHGbJh4hM=",
+                            PasswordSalt = "C16cVVOFWAJ6vtAQ0fHh0g==",
                             Phone = "1111111111",
-                            RoleId = new Guid("817175b8-73a4-439d-be60-c66f403fbea0"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5804),
+                            RoleId = new Guid("b5b7860b-c60b-40c9-83ad-634d83638cd7"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8239),
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = new Guid("c8155e42-0761-4ca3-9d79-4fadd52fb3a2"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5807),
+                            Id = new Guid("02530f11-bfbb-411d-89ec-372a4a96810b"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8242),
                             Email = "manager@example.com",
                             IsBlocked = false,
-                            PasswordHash = "dq1tU9BM0nTL+i8tyx48Ek2sDdUSBW0m6VbhU8f+iWY=",
-                            PasswordSalt = "rKeq+ZfhoOf1NLmQLzaQ2w==",
+                            PasswordHash = "S0xyLl7H2ph53W2CrDc/4Uu4IrlcltlVldY4l7TwJZw=",
+                            PasswordSalt = "psJCzS+yvzIRRVd1kCJJrw==",
                             Phone = "2222222222",
-                            RoleId = new Guid("26a9bc0d-dc2b-4c2a-8c4e-5dd000aeab0b"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5808),
+                            RoleId = new Guid("5d6358d1-a354-4b82-991c-6c035995d376"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8242),
                             UserName = "staffmanager"
                         },
                         new
                         {
-                            Id = new Guid("9dfe6fd3-fcb4-4403-a94d-07161fe9721d"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5810),
+                            Id = new Guid("ee093080-7da4-4c02-8f60-5f0761ae89a2"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8248),
                             Email = "staff@example.com",
                             IsBlocked = false,
-                            PasswordHash = "YRvSkuRIf7lSOvUnK2plb+PI/P1GYlMMxv3wvDdNvWE=",
-                            PasswordSalt = "iIRfptVj1+HGdQVQhlZ22Q==",
+                            PasswordHash = "hINikXQdpCF3wQE8rO7vMh0X4+n6Bjl7Pf25d+T0xMg=",
+                            PasswordSalt = "ZhyCaM4PJUw+3EcG2dXqlw==",
                             Phone = "3333333333",
-                            RoleId = new Guid("a035064c-6c42-4836-b0b3-6df0d783ae19"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5810),
+                            RoleId = new Guid("56c6e118-fd38-4feb-be1e-167e2e483682"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8249),
                             UserName = "staff"
                         },
                         new
                         {
-                            Id = new Guid("e915fe56-c8eb-4e94-a61b-abd7080b4a54"),
-                            CreatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5813),
+                            Id = new Guid("73ff0a84-b8dd-4ea8-9637-20a2f89e4805"),
+                            CreatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8251),
                             Email = "customer@example.com",
                             IsBlocked = false,
-                            PasswordHash = "QsigimfYAOPyn66FbKTvX+NMZkclQLoaGzGJ/S3L7Xo=",
-                            PasswordSalt = "pnaoPao0xacbWax0WJd54Q==",
+                            PasswordHash = "86UgGt0G6cIcC5ERWWDBLe3vEZdetp6HePHEiKzn6yM=",
+                            PasswordSalt = "vqnU5mqV9vUrQxMG338n/A==",
                             Phone = "4444444444",
-                            RoleId = new Guid("0f7b52ba-1255-4a2a-bcbd-e9bc8bfc1515"),
-                            UpdatedAt = new DateTime(2025, 5, 2, 5, 32, 7, 285, DateTimeKind.Utc).AddTicks(5813),
+                            RoleId = new Guid("77c08f1c-9206-42d4-ab5d-722c7942701d"),
+                            UpdatedAt = new DateTime(2025, 5, 3, 6, 53, 15, 856, DateTimeKind.Utc).AddTicks(8252),
                             UserName = "customer"
                         });
                 });

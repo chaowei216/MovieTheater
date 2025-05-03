@@ -202,3 +202,4 @@ D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\ne
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\Presentation.pdb
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\Presentation.genruntimeconfig.cache
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\ref\Presentation.dll
+D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\bin\Release\net8.0\CloudinaryDotNet.dll

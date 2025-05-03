@@ -28,6 +28,7 @@ namespace Domain.Entities
 
         [Required(ErrorMessage = "End date is required.")]
         public DateTime EndDate { get; set; }
+        public string? MovieImage { get; set; }
 
         public ICollection<Showtime> Showtimes { get; set; } = new List<Showtime>();
         public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();

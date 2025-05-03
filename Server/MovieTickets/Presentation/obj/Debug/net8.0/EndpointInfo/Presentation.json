@@ -118,7 +118,9 @@
         "tags": [
           "Admin"
         ],
+        "summary": "Unblock a user",
         "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -155,6 +157,159 @@
             "name": "id",
             "in": "query",
             "description": "",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/admin/movies": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Create a new movie",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MovieName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "IsPublic": {
+                    "type": "boolean"
+                  },
+                  "Duration": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ReleaseDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "MovieImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ActorNames": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ActorDescriptions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Sexes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "DatesOfBirth": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "CharacterNames": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ActorImageFiles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "MovieName": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "IsPublic": {
+                  "style": "form"
+                },
+                "Duration": {
+                  "style": "form"
+                },
+                "ReleaseDate": {
+                  "style": "form"
+                },
+                "EndDate": {
+                  "style": "form"
+                },
+                "MovieImageFile": {
+                  "style": "form"
+                },
+                "ActorNames": {
+                  "style": "form"
+                },
+                "ActorDescriptions": {
+                  "style": "form"
+                },
+                "Sexes": {
+                  "style": "form"
+                },
+                "DatesOfBirth": {
+                  "style": "form"
+                },
+                "CharacterNames": {
+                  "style": "form"
+                },
+                "ActorImageFiles": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/admin/movies/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get Movie by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"

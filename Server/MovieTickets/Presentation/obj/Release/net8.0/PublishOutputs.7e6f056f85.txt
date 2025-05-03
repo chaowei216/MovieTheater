@@ -7,6 +7,7 @@ D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\ne
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\PubTmp\Out\AutoMapper.dll
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\PubTmp\Out\ChilliCream.Nitro.App.dll
+D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\PubTmp\Out\CloudinaryDotNet.dll
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\PubTmp\Out\FluentValidation.dll
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\PubTmp\Out\FluentValidation.AspNetCore.dll
 D:\Project Personal\MovieTheater\Server\MovieTickets\Presentation\obj\Release\net8.0\PubTmp\Out\FluentValidation.DependencyInjectionExtensions.dll
