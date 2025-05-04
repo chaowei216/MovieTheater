@@ -2,6 +2,7 @@ import { useState } from "react"
 import {districtsByArea, favoriteCinemas} from "../data/area" 
 import { fakeAccounts } from "../data/accountdata";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const LoginRegister = ({setUser }) => {
     const [activeTab, setActiveTab] = useState("login");
@@ -36,31 +37,61 @@ const LoginRegister = ({setUser }) => {
     );
 };
 
-const LoginForm = ({setUser}) => {
+const LoginForm = ({ setUser }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const foundUser = fakeAccounts.find((user) => user.email === email && user.password === password);
-        if (!foundUser) {
-            alert("Tài khoản hoặc mật khẩu không đúng!");
-            return;
+        try {
+            const response = await fetch("http://mtt.runasp.net/api/Auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "*/*",
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Đăng nhập thất bại");
+            }
+
+            const resData = await response.json();
+
+            if (resData.success) {
+                const { token,refreshToken,userName } = resData.data;
+
+                const decoded = jwtDecode(token);
+                const role = decoded.Role?.toUpperCase();
+
+                localStorage.setItem("token", token);
+                localStorage.setItem("refreshToken", refreshToken);
+                localStorage.setItem("userName", userName);
+                localStorage.setItem("role", role);
+                setUser({ token, userName, role });
+            
+
+                if (role === "ADMIN") {
+                    navigate("/admin-dashboard");
+                
+                } else if (role === "STAFF") {
+                    navigate("/staff-dashboard");
+                } else if (role === "CUSTOMER") {
+                    navigate("/");
+                } else if (role ==="STAFF MANAGER") {
+                    navigate("/staff-manager-dashboard");
+                }else {
+                    alert("Bạn không có quyền truy cập vào trang này!");
+                }
+            } else {
+                alert("Email hoặc mật khẩu không đúng!");
+            }
+        } catch (error) {
+            console.error("Lỗi đăng nhập:", error);
+            alert("Có lỗi xảy ra khi đăng nhập!");
         }
-        localStorage.setItem('user', JSON.stringify(foundUser));
-        setUser(foundUser);
-        if (foundUser.role === "ADMIN") {
-            navigate("/admin-dashboard");
-        } else if (foundUser.role === "STAFF") {
-            navigate("/staff-dashboard");
-        } else if (foundUser.role === "CUSTOMER") {
-            navigate("/");
-        }else {
-            alert("Tài khoản không hợp lệ!");
-            return;
-        }
-        console.log(email, password);
     };
 
     return (
@@ -86,13 +117,15 @@ const LoginForm = ({setUser}) => {
                     required
                 />
             </div>
-            <button type="submit" className="w-full bg-yellow-500 text-gray-900 py-2 rounded-md font-medium hover:bg-yellow-600 transition">
+            <button
+                type="submit"
+                className="w-full bg-yellow-500 text-gray-900 py-2 rounded-md font-medium hover:bg-yellow-600 transition"
+            >
                 Đăng nhập
             </button>
         </form>
     );
 };
-
 const RegisterForm = () => {
     const [name, setName] = useState("");
     const [phone,setPhone] = useState("");

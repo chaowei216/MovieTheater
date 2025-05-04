@@ -2,48 +2,50 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Header from "./Components/Headers";
 import Footer from "./Components/Footer";
-// import NowShowing from "./Pages/NowShowing";
-// import ComingSoon from "./Pages/ComingSoon";
 import AdminDashboard from "./Admin/AdminDashboard";
 import MovieDetail from "./Pages/MovieDetail";
 import './index.css'
 import LoginRegister from "./Pages/LoginRegister";
 import { getUser } from "./utils/auth";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import MovieManagement from "./Admin/MovieManagement";
+
 function App() {
-  const [user,setUser] = useState(null);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Thêm loading flag
+
   useEffect(() => {
     const storedUser = getUser();
-    setUser(storedUser)
-  },[])
+    setUser(storedUser);
+    setIsLoading(false); // Chỉ render sau khi setUser xong
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>; // hoặc spinner
+  }
+
   return (
     <Router>
-      {/* Header hiển thị trên mọi trang */}
-      {!user || user.role === "CUSTOMER" ?  <Header /> : null}
-     
-      
+      {!user || user.role === "CUSTOMER" ? <Header /> : null}
+
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/now-showing" element={<NowShowing />} />
-        <Route path="/coming-soon" element={<ComingSoon />} /> */}
-        {/* Route dành cho từng role */}
+
         {user?.role === "ADMIN" && (
-    <>
-      <Route path="/admin-dashboard" element={<AdminDashboard setUser={setUser} />} />
-      <Route path="/admin-dashboard/movies" element={<MovieManagement />} />
-    </>
-  )}
-        {/* {user?.role === "STAFF" && <Route path="/staff-dashboard" element={<StaffDashboard />} />}  */}
-        <Route path="/login" element={<LoginRegister setUser={setUser}/>}/>
+          <>
+            <Route path="/admin-dashboard" element={<AdminDashboard setUser={setUser} />} />
+            <Route path="/admin-dashboard/movies" element={<MovieManagement />} />
+          </>
+        )}
+
+        <Route path="/login" element={<LoginRegister setUser={setUser} />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
       </Routes>
 
-      {/* Footer hiển thị trên mọi trang */}
       {(!user || user.role === "CUSTOMER") && <Footer />}
-  
     </Router>
   );
 }
+
 
 export default App;
