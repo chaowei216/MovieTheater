@@ -5,11 +5,19 @@ import { useState, useEffect } from "react";
 const Header = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  
   useEffect(() => {
     const loggedUser = getUser();
     setUser(loggedUser);
   }, []); // Thêm dependency array
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const userData = localStorage.getItem("user");
+      setUser(userData ? JSON.parse(userData) : null);
+    };
+  
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
 
   const logoutFunction = () => {
     localStorage.removeItem("user");

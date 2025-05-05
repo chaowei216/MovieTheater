@@ -1,6 +1,5 @@
 import { useState } from "react"
 import {districtsByArea, favoriteCinemas} from "../data/area" 
-import { fakeAccounts } from "../data/accountdata";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
@@ -40,10 +39,12 @@ const LoginRegister = ({setUser }) => {
 const LoginForm = ({ setUser }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading,setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await fetch("http://mtt.runasp.net/api/Auth/login", {
                 method: "POST",
@@ -61,36 +62,38 @@ const LoginForm = ({ setUser }) => {
             const resData = await response.json();
 
             if (resData.success) {
-                const { token,refreshToken,userName } = resData.data;
-
+                const { token, refreshToken, userName } = resData.data;
                 const decoded = jwtDecode(token);
                 const role = decoded.Role?.toUpperCase();
-
-                localStorage.setItem("token", token);
-                localStorage.setItem("refreshToken", refreshToken);
-                localStorage.setItem("userName", userName);
-                localStorage.setItem("role", role);
-                setUser({ token, userName, role });
-            
-
-                if (role === "ADMIN") {
-                    navigate("/admin-dashboard");
+              
+                const userData = {
+                  token,
+                  refreshToken,
+                  userName,
+                  role,
+                  email: decoded.Email || decoded.email
+                };
+              
+                // Lưu vào localStorage
+                localStorage.setItem("user", JSON.stringify(userData));
                 
-                } else if (role === "STAFF") {
-                    navigate("/staff-dashboard");
-                } else if (role === "CUSTOMER") {
-                    navigate("/");
-                } else if (role ==="STAFF MANAGER") {
-                    navigate("/staff-manager-dashboard");
-                }else {
-                    alert("Bạn không có quyền truy cập vào trang này!");
-                }
-            } else {
-                alert("Email hoặc mật khẩu không đúng!");
+                // Kích hoạt storage event để các tab khác cùng nhận biết
+                window.dispatchEvent(new Event('storage'));
+              
+                // Cập nhật state và redirect
+                setUser(userData);
+
+                  if (role === "ADMIN") navigate("/admin-dashboard");
+                  else if (role === "STAFF") navigate("/staff-dashboard");
+                  else if (role === "STAFF MANAGER") navigate("/staff-manager-dashboard");
+                  else navigate("/"); // CUSTOMER và các role khác
             }
         } catch (error) {
             console.error("Lỗi đăng nhập:", error);
-            alert("Có lỗi xảy ra khi đăng nhập!");
+    alert(error.message); // Hiển thị message lỗi chi tiết
+        } finally {
+            setIsLoading(false);
+
         }
     };
 
@@ -105,6 +108,7 @@ const LoginForm = ({ setUser }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    disabled={isLoading}
                 />
             </div>
             <div className="mb-6">
@@ -115,13 +119,17 @@ const LoginForm = ({ setUser }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    disabled={isLoading}
                 />
             </div>
             <button
-                type="submit"
-                className="w-full bg-yellow-500 text-gray-900 py-2 rounded-md font-medium hover:bg-yellow-600 transition"
+                 type="submit"
+                 className={`w-full bg-yellow-500 text-gray-900 py-2 rounded-md font-medium hover:bg-yellow-600 transition ${
+                     isLoading ? "opacity-50 cursor-not-allowed" : ""
+                 }`}
+                 disabled={isLoading}
             >
-                Đăng nhập
+                {isLoading ?  "Đang xử lý..." : "Đăng nhập"}
             </button>
         </form>
     );

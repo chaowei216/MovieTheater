@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     const storedUser = getUser();
     setUser(storedUser);
+    console.log("Stored User:", storedUser);
     setIsLoading(false); // Chỉ render sau khi setUser xong
   }, []);
 
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <Router>
-      {!user || user.role === "CUSTOMER" ? <Header /> : null}
+      {!user || user?.role === "CUSTOMER" ? <Header setUser={setUser} /> : null}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -42,7 +43,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetail />} />
       </Routes>
 
-      {(!user || user.role === "CUSTOMER") && <Footer />}
+      {!user || user?.role === "CUSTOMER" ? <Footer setUser={setUser} /> : null}
     </Router>
   );
 }
