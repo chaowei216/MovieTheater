@@ -27,7 +27,7 @@ function App() {
 
   return (
     <Router>
-      {!user || user?.role === "CUSTOMER" ? <Header setUser={setUser} /> : null}
+      {!user || user?.role === "CUSTOMER" ? <Header  user={user} setUser={setUser} /> : null}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -43,7 +43,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetail />} />
       </Routes>
 
-      {!user || user?.role === "CUSTOMER" ? <Footer setUser={setUser} /> : null}
+      {!user || user?.role === "CUSTOMER" ? <Footer user={user} setUser={setUser} /> : null}
     </Router>
   );
 }
