@@ -9,6 +9,7 @@ import LoginRegister from "./Pages/LoginRegister";
 import { getUser } from "./utils/auth";
 import { useState, useEffect } from "react";
 import MovieManagement from "./Admin/MovieManagement";
+import StaffManagerList from "./Admin/StaffManager";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -36,6 +37,7 @@ function App() {
           <>
             <Route path="/admin-dashboard" element={<AdminDashboard setUser={setUser} />} />
             <Route path="/admin-dashboard/movies" element={<MovieManagement />} />
+            <Route path="/admin-dashboard/staffmanager" element={<StaffManagerList/>}/>
           </>
         )}
 
